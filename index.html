@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Savings Countdown</title>
+</head>
+<body>
+
+    <!-- Input Fields -->
+    <nav>
+        <div class="inputGoals">
+            <input type="text" id="saving" placeholder="What are you saving for?">
+            <input type="number" id="savingsAmount" placeholder="What is your goal?">
+            <button id="savingDescription">Submit</button>
+        </div>
+
+        <div class="depositAmount">
+            <input type="number" id="savingsDeposit" placeholder="Deposit">
+            <button id="depositSubmit">Submit</button>
+        </div>
+    </nav>
+
+    <!-- Display Progress -->
+    <div class="display">
+        <p id="savingItem"></p>
+        <p id="savingAmount"></p>
+        <p id="celebrate"></p>
+    </div>
+
+    <script src="logic.js"></script>
+</body>
+</html>
