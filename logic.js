@@ -7,11 +7,12 @@ function savingsCalculator(){
     
     itemBtn.addEventListener('click', savingDescription);
 
-        const savingItem = document.querySelector('#saving');
-        const savingAmount = document.querySelector('#savingsAmount');
-
         let item;
         let amount;
+        let start = 0;
+
+        const savingItem = document.querySelector('#saving');
+        const savingAmount = document.querySelector('#savingsAmount');
 
         const itemDisplay = document.querySelector('#savingItem');
         const amountDisplay = document.querySelector('#savingAmount');
@@ -36,6 +37,7 @@ function savingsCalculator(){
         item = savingItem.value;
         amount = savingAmount.value;
         let total = parseFloat(amount);
+        const navTotal = document.querySelector('#navTotal');
 
         if(textAlert(item) === true){
             alert('Text input must involve a word or letters');
@@ -49,6 +51,7 @@ function savingsCalculator(){
 
         itemDisplay.innerHTML = `${item}`;
         amountDisplay.innerHTML = `$${total.toFixed(2)}`;
+        navTotal.innerHTML = `$${total.toFixed(2)}`;
 
         savingItem.value = '';
         savingAmount.value = '';
@@ -61,7 +64,12 @@ function savingsCalculator(){
     function depositAmount(){
         const deposit = document.querySelector('#savingsDeposit');
         const depInput = deposit.value;
-        const celebrate = document.querySelector('#celebrate');
+        const navDeposit = document.querySelector('#navDeposit');
+        const navDepositInput = parseFloat(depInput);
+
+        let depTotal = start + navDepositInput;
+        start = depTotal;
+        navDeposit.innerHTML = `$${depTotal.toFixed(2)}`;
 
         let total = amount - depInput;
         amount = total;
@@ -69,6 +77,7 @@ function savingsCalculator(){
 
         deposit.value = '';
 
+        const celebrate = document.querySelector('#celebrate');
         if(amount == 0){
             celebrate.innerHTML = msg;
         };
