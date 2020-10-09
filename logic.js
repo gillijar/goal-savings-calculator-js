@@ -1,11 +1,6 @@
-// Add JS for nav bar containing input fields with animations
-
 window.addEventListener('DOMContentLoaded', savingsCalculator);
 
 function savingsCalculator(){
-    const itemBtn = document.querySelector('#savingDescription');
-    
-    itemBtn.addEventListener('click', savingDescription);
 
         let item;
         let amount;
@@ -18,20 +13,17 @@ function savingsCalculator(){
         const amountDisplay = document.querySelector('#savingAmount');
 
         const msg = 'YOU DID IT! GO CHASE YOUR DREAMS!';
+
+    const navBtn = document.querySelector('.burger');
     
-    // Text inpunt field
-    function textAlert(text){
-        if(text === ''){
-            return true;
-        }
-    };
+    navBtn.addEventListener('click', () => {
+        const nav = document.querySelector('nav');
+        nav.classList.toggle('active');
+    });
+
+    const itemBtn = document.querySelector('#savingDescription');
     
-    // Number input field
-    function numberAlert(number){
-        if(number === '' || number == 0){
-            return true;
-        }
-    };
+    itemBtn.addEventListener('click', savingDescription);
 
     function savingDescription(){
         item = savingItem.value;
@@ -39,14 +31,14 @@ function savingsCalculator(){
         let total = parseFloat(amount);
         const navTotal = document.querySelector('#navTotal');
 
-        if(textAlert(item) === true){
-            alert('Text input must involve a word or letters');
-            return false;
+        if(item === ''){
+            alert('Input field must involve a word or letters');
+            return;
         }
-        
-        if(numberAlert(amount) === true){
-            alert('Number input cannot be left empty, and must be greater than zero.');
-            return false;
+
+        if(amount === '' || amount == 0){
+            alert('Number input cannot be empty and must be greater than zero');
+            return;
         }
 
         itemDisplay.innerHTML = `${item}`;
