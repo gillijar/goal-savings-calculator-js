@@ -6,12 +6,19 @@
 }
 
 @media only screen and (max-width: 768px){
+<<<<<<< HEAD
 .body-container{
     height: 100vh;
     width: 100vw;
     overflow-x: hidden;
     overflow-y: hidden;
     position: relative;
+=======
+body{
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+>>>>>>> cf700b7a94b0bc2dc81a3500ddec079ad7b6b4c3
 }
 
 /* Button */
@@ -87,7 +94,10 @@ nav{
     padding: 10px;
     border: 2px solid gray;
     border-radius: 35px;
+<<<<<<< HEAD
     outline: none;
+=======
+>>>>>>> cf700b7a94b0bc2dc81a3500ddec079ad7b6b4c3
 }
 
 /* JS Classes */
