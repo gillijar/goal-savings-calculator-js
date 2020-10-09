@@ -9,35 +9,39 @@
 </head>
 <body>
 
-    <!-- Button to open nav -->
-    <div class="burger">
-        <div id="line1"></div>
-        <div id="line2"></div>
-        <div id="line3"></div>
-    </div>
+    <div class="body-container">
 
-    <!-- Input Fields -->
-    <nav>
-        <div class="inputGoals">
-            <input type="text" id="saving" class="input" placeholder="What are you saving for?">
-            <input type="number" id="savingsAmount" class="input" placeholder="What is your goal?"><br>
-            <button id="savingDescription" class="btn">Submit</button>
+		<!-- Button to open nav -->
+		<div class="burger">
+			<div id="line1"></div>
+			<div id="line2"></div>
+			<div id="line3"></div>
+		</div>
+
+		<!-- Input Fields -->
+		<nav>
+			<div class="inputGoals">
+				<input type="text" id="saving" class="input" placeholder="What are you saving for?">
+				<input type="number" id="savingsAmount" class="input" placeholder="What is your goal?"><br>
+				<button id="savingDescription" class="btn">Submit</button>
+			</div>
+
+			<div class="depositAmount">
+				<input type="number" id="savingsDeposit" class="input" placeholder="Deposit"><br>
+				<button id="depositSubmit" class="btn">Submit</button>
+					<div class="totalDeposit">
+						<p><span id="navDeposit">$0</span> / <span id="navTotal">$0</span></p>
+					</div>
+			</div>
+		</nav>
+
+        <!-- Display Progress -->
+        <div class="display">
+            <p id="savingItem"></p>
+            <p id="savingAmount"></p>
+            <p id="celebrate"></p>
         </div>
 
-        <div class="depositAmount">
-            <input type="number" id="savingsDeposit" class="input" placeholder="Deposit"><br>
-            <button id="depositSubmit" class="btn">Submit</button>
-                <div class="totalDeposit">
-                    <p><span id="navDeposit">$0</span> / <span id="navTotal">$0</span></p>
-                </div>
-        </div>
-    </nav>
-
-    <!-- Display Progress -->
-    <div class="display">
-        <p id="savingItem"></p>
-        <p id="savingAmount"></p>
-        <p id="celebrate"></p>
     </div>
 
     <script src="logic.js"></script>
