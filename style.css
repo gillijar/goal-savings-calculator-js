@@ -6,10 +6,12 @@
 }
 
 @media only screen and (max-width: 768px){
-body{
+.body-container{
     height: 100vh;
     width: 100vw;
     overflow-x: hidden;
+    overflow-y: hidden;
+    position: relative;
 }
 
 /* Button */
@@ -85,6 +87,7 @@ nav{
     padding: 10px;
     border: 2px solid gray;
     border-radius: 35px;
+    outline: none;
 }
 
 /* JS Classes */
