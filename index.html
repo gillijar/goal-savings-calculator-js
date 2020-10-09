@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <title>Savings Countdown</title>
 </head>
 <body>
@@ -18,16 +19,16 @@
     <!-- Input Fields -->
     <nav>
         <div class="inputGoals">
-            <input type="text" id="saving" placeholder="What are you saving for?">
-            <input type="number" id="savingsAmount" placeholder="What is your goal?">
-            <button id="savingDescription">Submit</button>
+            <input type="text" id="saving" class="input" placeholder="What are you saving for?">
+            <input type="number" id="savingsAmount" class="input" placeholder="What is your goal?"><br>
+            <button id="savingDescription" class="btn">Submit</button>
         </div>
 
         <div class="depositAmount">
-            <input type="number" id="savingsDeposit" placeholder="Deposit">
-            <button id="depositSubmit">Submit</button>
+            <input type="number" id="savingsDeposit" class="input" placeholder="Deposit"><br>
+            <button id="depositSubmit" class="btn">Submit</button>
                 <div class="totalDeposit">
-                    <p><span id="navDeposit"></span> / <span id="navTotal"></span></p>
+                    <p><span id="navDeposit">$0</span> / <span id="navTotal">$0</span></p>
                 </div>
         </div>
     </nav>
