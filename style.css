@@ -6,92 +6,141 @@
 }
 
 @media only screen and (max-width: 768px){
-.body-container{
-    height: 100vh;
-    width: 100vw;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    position: relative;
-}
+    body{
+        background-image: url(./img/bkg-1.jpeg);
+        background-size: cover;
+        background-position: center;
+    }
 
-/* Button */
-.burger{
-    height: 8vh;
-    width: 14vw;
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: black;
-}
+    .body-container{
+        height: 100vh;
+        width: 100vw;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        position: relative;
+    }
 
-#line1{
-    background-color: white;
-    height: 6px;
-    width: 40px;
-    margin: 3px;
-}
+    /* Header */
+    header{
+        border: 2px solid black;
+        height: 8vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: black;
+    }
 
-#line2{
-    background-color: white;
-    height: 6px;
-    width: 40px;
-    margin: 3px;
-}
+    header p{
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        font-weight: 500;
+        letter-spacing: 0.18rem;
+        color: white;
+    }
 
-#line3{
-    background-color: white;
-    height: 6px;
-    width: 40px;
-    margin: 3px;
-}
+    /* Button */
 
-/* Nav */
-nav{
-    height: 92vh;
-    width: 100vw;
-    position: absolute;
-    top: 8vh;
-    background: #d4d4d4;
-    transform: translateX(100%);
-    transition: 0.5s ease-in-out;
-    color: white;
-}
+    .burger div{
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 5px;
+    }
 
-.inputGoals{
-    height: 45vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+    /* Nav */
+    nav{
+        height: 92vh;
+        width: 100vw;
+        position: absolute;
+        top: 8vh;
+        background: #d4d4d4;
+        transform: translateX(100%);
+        transition: 0.5s ease-in-out;
+        color: white;
+    }
 
-.depositAmount{
-    height: 35vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+    .inputGoals{
+        height: 45vh;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 
-.input{
-    margin: 8px;
-    width: 65vw;
-    height: 35px;
-    font-size: 1.1rem;
-    padding: 10px;
-    border: 2px solid gray;
-    border-radius: 35px;
-    outline: none;
-}
+    .depositAmount{
+        height: 35vh;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 
-/* JS Classes */
-.active{
-    transform: translateX(0%);
-}
+    .input{
+        margin: 8px;
+        width: 65vw;
+        height: 40px;
+        font-size: 1.1rem;
+        padding: 10px;
+        border: 2px solid gray;
+        border-radius: 35px;
+        outline: none;
+    }
+
+    .btn{
+        width: 35vw;
+        height: 35px;
+        border-radius: 35px;
+        font-size: 1.1rem;
+        background: gray;
+        border: 2px solid gray;
+        color: white;
+        letter-spacing: 0.18rem;
+        outline: none;
+    }
+
+    .totalDeposit{
+        font-size: 26px;
+        margin-top: 20px;
+        height: 20vh;
+        display: flex;
+        align-items: center;
+    }
+
+    /* UI Display */
+    .display{
+        height: 30vh;
+        width: 100vw;
+        position: absolute;
+        top: 50%;
+        left: 0%;
+        transform: translate(0%,-50%);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        z-index: -10;
+    }
+
+    #savingItem{
+        font-size: 1.65rem;
+        font-weight: 500;
+        letter-spacing: 0.12rem;
+    }
+
+    #savingAmount{
+        font-size: 2.4rem;
+        font-weight: 500;
+        letter-spacing: 0.12rem;
+    }
+
+    #celebrate{
+        display: none;
+    }
+    /* JS Classes */
+    .active{
+        transform: translateX(0%);
+    }
 }
