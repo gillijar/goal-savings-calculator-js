@@ -11,12 +11,18 @@
 
     <div class="body-container">
 
-		<!-- Button to open nav -->
-		<div class="burger">
-			<div id="line1"></div>
-			<div id="line2"></div>
-			<div id="line3"></div>
-		</div>
+		<!-- Header with button to open nav -->
+		<header>
+			<div class="title">
+				<p>Savings Countdown</p>
+			</div>
+
+			<div class="burger">
+				<div id="line1"></div>
+				<div id="line2"></div>
+				<div id="line3"></div>
+			</div>
+		</header>
 
 		<!-- Input Fields -->
 		<nav>
@@ -30,7 +36,7 @@
 				<input type="number" id="savingsDeposit" class="input" placeholder="Deposit"><br>
 				<button id="depositSubmit" class="btn">Submit</button>
 					<div class="totalDeposit">
-						<p><span id="navDeposit">$0</span> / <span id="navTotal">$0</span></p>
+						<p id="navAmount"><span id="navDeposit">$0</span> / <span id="navTotal">$0</span></p>
 					</div>
 			</div>
 		</nav>
