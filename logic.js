@@ -12,17 +12,16 @@ function savingsCalculator(){
         const itemDisplay = document.querySelector('#savingItem');
         const amountDisplay = document.querySelector('#savingAmount');
 
-        const msg = 'YOU DID IT! GO CHASE YOUR DREAMS!';
-
+// NAV BUTTON AND FUNCTION
     const navBtn = document.querySelector('.burger');
-    
     navBtn.addEventListener('click', () => {
         const nav = document.querySelector('nav');
         nav.classList.toggle('active');
+        navBtn.classList.toggle('rotate');
     });
 
+// SAVINGS ITEM AND AMOUNT BUTTON AND FUNCTION
     const itemBtn = document.querySelector('#savingDescription');
-    
     itemBtn.addEventListener('click', savingDescription);
 
     function savingDescription(){
@@ -49,8 +48,8 @@ function savingsCalculator(){
         savingAmount.value = '';
     };
 
+// DEPOSIT BUTTON AND FUNCTION
     const depositBtn = document.querySelector('#depositSubmit');
-    
     depositBtn.addEventListener('click', depositAmount);
 
     function depositAmount(){
@@ -64,11 +63,17 @@ function savingsCalculator(){
         navDeposit.innerHTML = `$${depTotal.toFixed(2)}`;
 
         let total = amount - depInput;
+
+        if(total <= 0){
+            total = 0;
+        }
+
         amount = total;
         amountDisplay.innerHTML = `$${total.toFixed(2)}`;
 
         deposit.value = '';
 
+        const msg = 'YOU DID IT! GO CHASE YOUR DREAMS!';
         const celebrate = document.querySelector('#celebrate');
         if(amount == 0){
             celebrate.innerHTML = msg;
