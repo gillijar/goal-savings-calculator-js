@@ -46,6 +46,7 @@
         height: 3px;
         background-color: white;
         margin: 5px;
+        transition: 0.7s;
     }
 
     /* Nav */
@@ -142,5 +143,15 @@
     /* JS Classes */
     .active{
         transform: translateX(0%);
+    }
+
+    .rotate #line1{
+        transform: rotate(-45deg) translate(-1px,4px);
+    }
+    .rotate #line2{
+        display: none;
+    }
+    .rotate #line3{
+        transform: rotate(45deg) translate(-1px,-5px);
     }
 }
