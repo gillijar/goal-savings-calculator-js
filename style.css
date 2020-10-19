@@ -141,8 +141,9 @@ nav{
     letter-spacing: 0.12rem;
 }
 
-#celebrate{
-    display: none;
+/* Celebration display upon completing goal */
+.complete{
+    display: block;
 }
 
 /* Remove spinners from number inputs */
@@ -152,6 +153,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+/* Animation for input fields */
 .input:focus{
     width: 23vw;
     border: 2.7px solid #5c5c5c;
@@ -296,10 +298,13 @@ input::-webkit-inner-spin-button {
         letter-spacing: 0.12rem;
     }
 
-    #celebrate{
-        display: none;
+/* Celebration display upon completing goal */
+    .complete{
+        display: block;
     }
 
+
+/* Animation for input fields */
     .input:hover{
         width: 75vw;
         border: 2.7px solid #5c5c5c;
