@@ -12,6 +12,13 @@ function savingsCalculator(){
         const itemDisplay = document.querySelector('#savingItem');
         const amountDisplay = document.querySelector('#savingAmount');
 
+// REG EX TO ADD COMMAS TO NUMBERS IN THE THOUSANDS
+        function thousandsSeparator(num){
+            var numParts = num.toString().split(".");
+            numParts[0] = numParts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            return numParts.join(".");
+        }
+
 // NAV BUTTON AND FUNCTION
     const navBtn = document.querySelector('.burger');
     navBtn.addEventListener('click', () => {
@@ -35,14 +42,14 @@ function savingsCalculator(){
             return;
         }
 
-        if(amount === '' || amount == 0){
+        if(amount === '' || amount <= 0){
             alert('Number input cannot be empty and must be greater than zero');
             return;
         }
 
         itemDisplay.innerHTML = `${item}`;
-        amountDisplay.innerHTML = `$${total.toFixed(2)}`;
-        navTotal.innerHTML = `$${total.toFixed(2)}`;
+        amountDisplay.innerHTML = thousandsSeparator(`$${total.toFixed(2)}`);
+        navTotal.innerHTML = thousandsSeparator(`$${total.toFixed(2)}`);
 
         savingItem.value = '';
         savingAmount.value = '';
@@ -58,9 +65,19 @@ function savingsCalculator(){
         const navDeposit = document.querySelector('#navDeposit');
         const navDepositInput = parseFloat(depInput);
 
+        if(itemDisplay.innerHTML === '' || amountDisplay.innerHTML === ''){
+            alert('You must enter a goal item and amount first');
+            return;
+        }
+
+        if(depInput === '' || depInput <= 0){
+            alert('Number input cannot be empty and must be greater than zero');
+            return;
+        }
+
         let depTotal = start + navDepositInput;
         start = depTotal;
-        navDeposit.innerHTML = `$${depTotal.toFixed(2)}`;
+        navDeposit.innerHTML = thousandsSeparator(`$${depTotal.toFixed(2)}`);
 
         let total = amount - depInput;
 
@@ -69,13 +86,15 @@ function savingsCalculator(){
         }
 
         amount = total;
-        amountDisplay.innerHTML = `$${total.toFixed(2)}`;
+        amountDisplay.innerHTML = thousandsSeparator(`$${total.toFixed(2)}`);
 
         deposit.value = '';
 
+        // CELEBRATION DISPLAY MESSAGE UPON COMPLETING GOAL
         const msg = 'YOU DID IT! GO CHASE YOUR DREAMS!';
         const celebrate = document.querySelector('#celebrate');
         if(amount == 0){
+            celebrate.classList.add('complete');
             celebrate.innerHTML = msg;
         };
     };
