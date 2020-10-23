@@ -48,9 +48,11 @@ function savingsCalculator(){
 // CLEAR LOCAL STORAGE
     const clearStorageBtn = document.querySelector('#clearStorage');
     clearStorageBtn.addEventListener('click', () => {
-        alert('Clicking OK will delete all current data and create a new file');
-        localStorage.clear();
-        location.reload();
+        if(localStorage.length > 0){
+            alert('Clicking OK will delete all current data and create a new file');
+            localStorage.clear();
+            location.reload();
+        }
     });
 
 // SAVINGS ITEM AND AMOUNT BUTTON AND FUNCTION
