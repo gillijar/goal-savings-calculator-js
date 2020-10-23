@@ -61,8 +61,16 @@ nav{
     color: white;
 }
 
+.clearBtn{
+    height: 20vh;
+    width: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .inputGoals{
-    height: 45vh;
+    height: 30vh;
     width: 30vw;
     display: flex;
     flex-direction: column;
@@ -91,13 +99,19 @@ nav{
     transition: 0.35s;
 }
 
+#clearStorage{
+    height: 45px;
+    width: 12vw;
+    border-radius: 40px;
+}
+
 .btn{
     width: 10vw;
     height: 32.5px;
     border-radius: 35px;
     font-size: 1rem;
     background: #55bd71;
-    border: 2px solid #55bd71;
+    border: 2px solid #3e7a4e;
     color: white;
     letter-spacing: 0.18rem;
     outline: none;
@@ -221,8 +235,16 @@ input::-webkit-inner-spin-button {
         color: white;
     }
 
+    .clearBtn{
+        height: 20vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     .inputGoals{
-        height: 45vh;
+        height: 30vh;
         width: 100vw;
         display: flex;
         flex-direction: column;
@@ -251,13 +273,21 @@ input::-webkit-inner-spin-button {
         transition: 0.35s;
     }
 
+    #clearStorage{
+        height: 45px;
+        width: 40vw;
+        border-radius: 45px;
+        position: absolute;
+        top: 10vh;
+    }
+
     .btn{
         width: 35vw;
         height: 35px;
         border-radius: 35px;
         font-size: 1.1rem;
         background: #55bd71;
-        border: 2px solid #55bd71;
+        border: 2px solid #3e7a4e;
         color: white;
         letter-spacing: 0.18rem;
         outline: none;
