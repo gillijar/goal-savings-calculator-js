@@ -19,12 +19,12 @@ function savingsCalculator(){
         const navDeposit = document.querySelector('#navDeposit');
 
         // LOCAL STORAGE
-        const storageItem = localStorage.getItem('Saving Item');
-        const storageAmount = localStorage.getItem('Saving Amount');
-        let storageCurrent = localStorage.getItem('Current Amount');
-        let navStorage = localStorage.getItem('Nav Amount');
-
         if(localStorage.length > 0){
+            const storageItem = localStorage.getItem('Saving Item');
+            const storageAmount = localStorage.getItem('Saving Amount');
+            let storageCurrent = localStorage.getItem('Current Amount');
+            let navStorage = localStorage.getItem('Nav Amount');
+
             itemDisplay.innerHTML = `${storageItem}`;
             amountDisplay.innerHTML = thousandsSeparator(`$${storageCurrent}`);
             navDeposit.innerHTML = thousandsSeparator(`$${navStorage}`);
@@ -117,28 +117,25 @@ function savingsCalculator(){
             return;
         }
 
-        // LOCAL STORAGE
-        if(localStorage.length > 0){
+        let depTotal = start + navDepositInput;
+        start = depTotal;
+        navDeposit.innerHTML = thousandsSeparator(`$${depTotal.toFixed(2)}`);
 
-            let depTotal = start + navDepositInput;
-            start = depTotal;
-            navDeposit.innerHTML = thousandsSeparator(`$${depTotal.toFixed(2)}`);
+        let total = amount - depInput;
 
-            let total = amount - depInput;
-
-            if(total <= 0){
-                total = 0;
-            }
-
-            amount = total;
-            amountDisplay.innerHTML = thousandsSeparator(`$${total.toFixed(2)}`);
-
-            localStorage.setItem('Current Amount', total.toFixed(2));
-            localStorage.setItem('Nav Amount', depTotal.toFixed(2));
-            navStorage = parseFloat(localStorage.getItem('Nav Amount'));
+        if(total <= 0){
+            total = 0;
         }
 
+        amount = total;
+        amountDisplay.innerHTML = thousandsSeparator(`$${total.toFixed(2)}`);
+
         deposit.value = '';
+
+        // LOCAL STORAGE
+        localStorage.setItem('Current Amount', total.toFixed(2));
+        localStorage.setItem('Nav Amount', depTotal.toFixed(2));
+        navStorage = parseFloat(localStorage.getItem('Nav Amount'));
 
         // CELEBRATION DISPLAY MESSAGE UPON COMPLETING GOAL
         const msg = 'YOU DID IT! GO CHASE YOUR DREAMS!';
