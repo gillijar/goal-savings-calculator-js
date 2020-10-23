@@ -94,6 +94,7 @@ function savingsCalculator(){
          localStorage.setItem('Saving Item', item);
          localStorage.setItem('Current Amount', total.toFixed(2));
          localStorage.setItem('Saving Amount', total.toFixed(2)); 
+         localStorage.setItem('Nav Amount', 0);
     };
 
 // DEPOSIT BUTTON AND FUNCTION
