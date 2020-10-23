@@ -2,21 +2,39 @@ window.addEventListener('DOMContentLoaded', savingsCalculator);
 
 function savingsCalculator(){
 
-        let item;
         let amount;
-        let start = 0;
+        let start;
 
-        const savingItem = document.querySelector('#saving');
-        const savingAmount = document.querySelector('#savingsAmount');
-
-        const itemDisplay = document.querySelector('#savingItem');
-        const amountDisplay = document.querySelector('#savingAmount');
-
-// REG EX TO ADD COMMAS TO NUMBERS IN THE THOUSANDS
+        // REG EX TO ADD COMMAS TO NUMBERS IN THE THOUSANDS
         function thousandsSeparator(num){
-            var numParts = num.toString().split(".");
+            const numParts = num.toString().split(".");
             numParts[0] = numParts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             return numParts.join(".");
+        }
+
+        // SCREEN DISPLAY
+        const itemDisplay = document.querySelector('#savingItem');
+        const amountDisplay = document.querySelector('#savingAmount');
+        const navTotal = document.querySelector('#navTotal');
+        const navDeposit = document.querySelector('#navDeposit');
+
+        // LOCAL STORAGE
+        const storageItem = localStorage.getItem('Saving Item');
+        const storageAmount = localStorage.getItem('Saving Amount');
+        let storageCurrent = localStorage.getItem('Current Amount');
+        let navStorage = localStorage.getItem('Nav Amount');
+
+        if(localStorage.length > 0){
+            itemDisplay.innerHTML = `${storageItem}`;
+            amountDisplay.innerHTML = thousandsSeparator(`$${storageCurrent}`);
+            navDeposit.innerHTML = thousandsSeparator(`$${navStorage}`);
+            navTotal.innerHTML = thousandsSeparator(`$${storageAmount}`);
+            start = parseFloat(navStorage);
+            amount = parseFloat(storageCurrent);
+        } 
+        
+        else {
+            start = 0;
         }
 
 // NAV BUTTON AND FUNCTION
@@ -27,16 +45,33 @@ function savingsCalculator(){
         navBtn.classList.toggle('rotate');
     });
 
+// CLEAR LOCAL STORAGE
+    const clearStorageBtn = document.querySelector('#clearStorage');
+    clearStorageBtn.addEventListener('click', () => {
+        alert('Clicking OK will delete all current data and create a new file');
+        localStorage.clear();
+        location.reload();
+    });
+
 // SAVINGS ITEM AND AMOUNT BUTTON AND FUNCTION
     const itemBtn = document.querySelector('#savingDescription');
     itemBtn.addEventListener('click', savingDescription);
 
     function savingDescription(){
-        item = savingItem.value;
-        amount = savingAmount.value;
-        let total = parseFloat(amount);
-        const navTotal = document.querySelector('#navTotal');
+        const savingItem = document.querySelector('#saving');
+        const savingAmount = document.querySelector('#savingsAmount');
 
+        amount = savingAmount.value;
+        const item = savingItem.value;
+        const total = parseFloat(amount);
+
+        // PREVENT NEW GOAL IF THERE IS LOCAL STORAGE ALREADY PRESENT
+        if(localStorage.length > 0){
+            alert('You must clear current goal and amount before entering new one');
+            return;
+        }
+
+        // PREVENT SUBMIT IF INPUT ITEM OR AMOUNT IS EMPTY
         if(item === ''){
             alert('Input field must involve a word or letters');
             return;
@@ -47,12 +82,18 @@ function savingsCalculator(){
             return;
         }
 
+        // DISPLAY FOR GOAL ITEM AND AMOUNT
         itemDisplay.innerHTML = `${item}`;
         amountDisplay.innerHTML = thousandsSeparator(`$${total.toFixed(2)}`);
         navTotal.innerHTML = thousandsSeparator(`$${total.toFixed(2)}`);
 
         savingItem.value = '';
         savingAmount.value = '';
+
+         // LOCAL STORAGE
+         localStorage.setItem('Saving Item', item);
+         localStorage.setItem('Current Amount', total.toFixed(2));
+         localStorage.setItem('Saving Amount', total.toFixed(2)); 
     };
 
 // DEPOSIT BUTTON AND FUNCTION
@@ -65,6 +106,7 @@ function savingsCalculator(){
         const navDeposit = document.querySelector('#navDeposit');
         const navDepositInput = parseFloat(depInput);
 
+        // PREVENT DEPOSIT SUBMIT IF THERE IS NO GOAL OR AMOUNT
         if(itemDisplay.innerHTML === '' || amountDisplay.innerHTML === ''){
             alert('You must enter a goal item and amount first');
             return;
@@ -75,18 +117,26 @@ function savingsCalculator(){
             return;
         }
 
-        let depTotal = start + navDepositInput;
-        start = depTotal;
-        navDeposit.innerHTML = thousandsSeparator(`$${depTotal.toFixed(2)}`);
+        // LOCAL STORAGE
+        if(localStorage.length > 0){
 
-        let total = amount - depInput;
+            let depTotal = start + navDepositInput;
+            start = depTotal;
+            navDeposit.innerHTML = thousandsSeparator(`$${depTotal.toFixed(2)}`);
 
-        if(total <= 0){
-            total = 0;
+            let total = amount - depInput;
+
+            if(total <= 0){
+                total = 0;
+            }
+
+            amount = total;
+            amountDisplay.innerHTML = thousandsSeparator(`$${total.toFixed(2)}`);
+
+            localStorage.setItem('Current Amount', total.toFixed(2));
+            localStorage.setItem('Nav Amount', depTotal.toFixed(2));
+            navStorage = parseFloat(localStorage.getItem('Nav Amount'));
         }
-
-        amount = total;
-        amountDisplay.innerHTML = thousandsSeparator(`$${total.toFixed(2)}`);
 
         deposit.value = '';
 
