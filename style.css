@@ -6,6 +6,13 @@
 }
 
 /* Larger Media Screens */
+body{
+    background-image: url(./img/bkg-1.jpeg);
+    background-size: cover;
+    background-position: center;
+    object-fit: cover;
+}
+
 .body-container{
     height: 100vh;
     width: 100vw;
@@ -127,6 +134,16 @@ nav{
     align-items: center;
 }
 
+.settingsBtn{
+    font-size: 2rem;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    text-shadow: 2px 2px 2px gray;
+    color: white;
+    cursor: pointer;
+}
+
 .display{
     height: 30vh;
     width: 100vw;
@@ -141,7 +158,7 @@ nav{
     z-index: -10;
 }
 
-#savingItem{
+.savingItem{
     font-size: 2rem;
     font-weight: 500;
     letter-spacing: 0.12rem;
@@ -149,10 +166,171 @@ nav{
     text-align: center;
 }
 
-#savingAmount{
+.savingAmount{
     font-size: 2.4rem;
     font-weight: 500;
     letter-spacing: 0.12rem;
+}
+
+/* Settings Page */
+.settings-container{
+    height: 92vh;
+    width: 30vw;
+    position: absolute;
+    top: 8vh;
+    right: 0;
+    background: #d4d4d4;
+    opacity: 0;
+    z-index: -10;
+    transition: 0.25s ease-in-out;
+}
+
+.settings-title{
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-container{
+    height: 8vh;
+    width: 4vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back-btn{
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+}
+
+.change-bkg{
+    margin-top: 1vh;
+    width: 28vw;
+    margin: auto;
+}
+
+.change-bkg p{
+    padding: 8px;
+    font-size: 1.05rem;
+    border-bottom: 1px solid black;
+}
+
+.images{
+    height: 35vh;
+    width: 28vw;
+    margin: auto;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.background-img{
+    background-size: cover;
+    object-fit: cover;
+    background-position: center;
+    height: 80px;
+    width: 80px;
+    border-radius: 10px;
+    box-shadow: 3px 2px 5px #3b3b3b;
+    cursor: pointer;
+}
+
+#bkg-1{
+    background-image: url(img/bkg-1.jpeg);
+}
+
+#bkg-2{
+    background-image: url(img/bkg-2.jpeg);
+}
+
+#bkg-3{
+    background-image: url(img/bkg-3.jpeg);
+}
+
+#bkg-4{
+    background-image: url(img/bkg-4.jpeg);
+}
+
+#bkg-5{
+    background-image: url(img/bkg-5.jpeg);
+}
+
+#bkg-6{
+    background-image: url(img/bkg-6.jpeg);
+}
+
+.change-fontsize{
+    margin-top: 1vh;
+    width: 28vw;
+    margin: auto;
+}
+
+.change-fontsize p{
+    padding: 8px;
+    font-size: 1.05rem;
+    border-bottom: 1px solid black;
+}
+
+.fontsize{
+    height: 15vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.size{
+    cursor: pointer;
+}
+
+#f1, .f1{
+    font-size: 1.65rem;
+}
+#f2, .f2{
+    font-size: 2.25rem;
+}
+#f3, .f3{
+    font-size: 2.85rem;
+}
+
+.dark-mode{
+    width: 28vw;
+    margin: auto;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid black;
+}
+
+.dark-mode p{
+    font-size: 1.05rem;
+}
+
+.dark-mode-container{
+    width: 3vw;
+    height: 20px;
+    border-radius: 20px;
+    background: gray;
+    display: flex;
+    align-items: center;
+    transition: 0.25s;
+}
+
+.dark-mode-btn{
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background: white;
+    transform: translateX(1%);
+    transition: 0.25s;
+    cursor: pointer;
 }
 
 /* Celebration display upon completing goal */
@@ -302,7 +480,7 @@ input::-webkit-inner-spin-button {
     }
 
     .settingsBtn{
-        font-size: 2.75rem;
+        font-size: 2.25rem;
         position: absolute;
         bottom: 10px;
         right: 10px;
@@ -325,23 +503,75 @@ input::-webkit-inner-spin-button {
         z-index: -10;
     }
 
-    #savingItem{
+    .savingItem{
         font-size: 1.65rem;
         font-weight: 500;
         letter-spacing: 0.12rem;
     }
 
-    #savingAmount{
+    .savingAmount{
         font-size: 2.4rem;
         font-weight: 500;
         letter-spacing: 0.12rem;
     }
 
-/* Celebration display upon completing goal */
-    .complete{
-        display: block;
+/* Celebration display upon completion */
+    .modal-completion{
+        height: 92vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: 8vh;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: -1;
+        opacity: 0;
+        transition: 0.5s ease-in-out;
     }
 
+    .close-modal-btn{
+        font-size: 2.3rem;
+        color: white;
+        position: absolute;
+        top: 1.5vh;
+        right: 1.5vh;
+    }
+
+    .modal-display{
+        height: 50vh;
+        width: 100vw;
+        display: block;
+        position: relative;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-display::after {
+        content: "";
+        background: url(/img/modal-bkg.jpeg);
+        background-size: cover;
+        opacity: 0.75;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;   
+      }
+
+      .modal-display p{
+          height: 40vh;
+          width: 100vw;
+          font-size: 2.5rem;
+          font-weight: 400;
+          text-transform: uppercase;
+          display: flex;
+          align-items: center;
+          text-align: center;
+          text-shadow: 5px 3px 5px black;
+      }
 
 /* Animation for input fields */
     .input:hover{
@@ -353,7 +583,13 @@ input::-webkit-inner-spin-button {
     .settings-container{
         height: 100vh;
         width: 100vw;
+        position: absolute;
+        top: 0;
+        left: 0;
         background: #d4d4d4;
+        opacity: 0;
+        z-index: -10;
+        transition: 0.25s ease-in-out;
     }
 
     .settings-title{
@@ -375,66 +611,130 @@ input::-webkit-inner-spin-button {
     }
     
     .back-btn{
-        font-size: 2rem;
+        font-size: 1.65rem;
         color: white;
     }
 
     .change-bkg{
-        position: absolute;
-        top: 12vh;
+        margin-top: 2vh;
+        width: 95vw;
+        margin: auto;
     }
 
     .change-bkg p{
         padding: 10px;
         font-size: 1.4rem;
+        border-bottom: 1px solid black;
     }
 
     .images{
         height: 40vh;
-        width: 100vw;
+        width: 95vw;
+        margin: auto;
         display: grid;
         grid-template-columns: auto auto auto;
         justify-content: space-around;
         align-items: center;
     }
 
-    #img1, #img2, #img3, #img4, #img5, #img6{
+    .background-img{
         background-size: cover;
         object-fit: cover;
         background-position: center;
         height: 110px;
         width: 110px;
         border-radius: 15px;
-        box-shadow: 3px 2px 5px gray;
+        box-shadow: 3px 2px 5px #3b3b3b;
     }
 
-    #img1{
-        background-image: url(/img/bkg-1.jpeg);
+    #bkg-1{
+        background-image: url(img/bkg-1.jpeg);
     }
 
-    #img2{
-        background-image: url(/img/bkg-2.jpeg);
+    #bkg-2{
+        background-image: url(img/bkg-2.jpeg);
     }
 
-    #img3{
-        background-image: url(/img/bkg-3.jpeg);
+    #bkg-3{
+        background-image: url(img/bkg-3.jpeg);
     }
 
-    #img4{
-        background-image: url(/img/bkg-4.webp);
+    #bkg-4{
+        background-image: url(img/bkg-4.jpeg);
     }
 
-    #img5{
-        background-image: url(/img/bkg-5.jpeg);
+    #bkg-5{
+        background-image: url(img/bkg-5.jpeg);
     }
 
-    #img6{
-        background-image: url(/img/bkg-6.jpeg);
+    #bkg-6{
+        background-image: url(img/bkg-6.jpeg);
+    }
+
+    .change-fontsize{
+        margin-top: 2vh;
+        width: 95vw;
+        margin: auto;
+    }
+
+    .change-fontsize p{
+        padding: 10px;
+        font-size: 1.4rem;
+        border-bottom: 1px solid black;
+    }
+
+    .fontsize{
+        height: 15vh;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    #f1, .f1{
+        font-size: 1.65rem;
+    }
+    #f2, .f2{
+        font-size: 2rem;
+    }
+    #f3, .f3{
+        font-size: 2.35rem;
+    }
+
+    .dark-mode{
+        width: 95vw;
+        padding: 10px;
+        margin-left: 2.5vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .dark-mode p{
+        font-size: 1.4rem;
+    }
+
+    .dark-mode-container{
+        width: 14vw;
+        height: 30px;
+        border-radius: 30px;
+        background: gray;
+        display: flex;
+        align-items: center;
+        transition: 0.25s;
+    }
+
+    .dark-mode-btn{
+        width: 30px;
+        height: 30px;
+        border-radius: 30px;
+        background: white;
+        transform: translateX(1%);
+        transition: 0.25s;
     }
 }
 
  /* JS Classes */
- .active{
+ nav.open{
     transform: translateX(0%);
 }
 
@@ -446,4 +746,46 @@ input::-webkit-inner-spin-button {
 }
 .rotate #line3{
     transform: rotate(45deg) translate(-1px,-5px);
+}
+
+/* Dark Mode Javascript */
+.dark-mode-btn.dark{
+    transform: translateX(92%);
+}
+
+nav.dark{
+    background-color: #292929;
+}
+
+.dark-mode-container.dark{
+    background-color: lime;
+}
+
+.settings-container.dark{
+    background-color: #292929;
+    color: white;
+}
+
+input.dark{
+    background-color: #9c9c9c;
+    color: white;
+}
+
+input.dark::placeholder{
+    color: white;
+}
+
+input.dark:hover{
+    color: white;
+}
+
+/* Open settings */
+.settings-container.open{
+    opacity: 1;
+    z-index: 10;
+}
+
+.modal-completion.open{
+    opacity: 1;
+    z-index: 15;
 }
