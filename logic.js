@@ -1,3 +1,6 @@
+// 1. Figure out local storage for font size and how to make it stay after app has been closed
+// 2. FINISH APP!
+
 window.addEventListener('DOMContentLoaded', savingsCalculator);
 
 function savingsCalculator(){
@@ -13,13 +16,13 @@ function savingsCalculator(){
         }
 
         // SCREEN DISPLAY
-        const itemDisplay = document.querySelector('#savingItem');
-        const amountDisplay = document.querySelector('#savingAmount');
+        const itemDisplay = document.querySelector('.savingItem');
+        const amountDisplay = document.querySelector('.savingAmount');
         const navTotal = document.querySelector('#navTotal');
         const navDeposit = document.querySelector('#navDeposit');
 
         // LOCAL STORAGE
-        if(localStorage.length > 0){
+        if(localStorage.length > 2){
             const storageItem = localStorage.getItem('Saving Item');
             const storageAmount = localStorage.getItem('Saving Amount');
             let storageCurrent = localStorage.getItem('Current Amount');
@@ -39,21 +42,77 @@ function savingsCalculator(){
 
 // NAV BUTTON AND FUNCTION
     const navBtn = document.querySelector('.burger');
+    const nav = document.querySelector('nav');
     navBtn.addEventListener('click', () => {
-        const nav = document.querySelector('nav');
-        nav.classList.toggle('active');
+        nav.classList.toggle('open');
         navBtn.classList.toggle('rotate');
+        settingsContainer.classList.remove('open');
     });
 
 // CLEAR LOCAL STORAGE
     const clearStorageBtn = document.querySelector('#clearStorage');
     clearStorageBtn.addEventListener('click', () => {
-        if(localStorage.length > 0){
+        if(localStorage.length > 2){
             alert('Clicking OK will delete all current data and create a new file');
-            localStorage.clear();
+            localStorage.removeItem('Saving Item');
+            localStorage.removeItem('Saving Amount');
+            localStorage.removeItem('Current Amount');
+            localStorage.removeItem('Nav Amount');
             location.reload();
         }
     });
+
+// SETTINGS
+    const openSettings = document.querySelectorAll('.settingsJS');
+    const settingsContainer = document.querySelector('.settings-container');
+
+    openSettings.forEach((button) => {
+        button.addEventListener('click', () => {
+            settingsContainer.classList.toggle('open');
+        });
+    });
+
+    // CHANGE BACKGROUND
+    const backgroundImages = document.querySelectorAll('.background-img');
+    const body = document.querySelector('body');
+
+    backgroundImages.forEach((image) => {
+        image.addEventListener('click', (e) => {
+            const newBkg = body.style.backgroundImage = `url(img/${e.target.id}.jpeg)`;
+            localStorage.setItem('Background Image', newBkg);
+        });
+    });
+
+    const storageBackground = localStorage.getItem('Background Image');
+    body.style.backgroundImage = storageBackground;
+
+    // CHANGE FONT SIZE
+    const fontSizeBtn = document.querySelectorAll('.size');
+    fontSizeBtn.forEach((button) => {
+        button.addEventListener('click', (e) => {
+            itemDisplay.classList = 'savingItem';
+            const changeFont = itemDisplay.classList.add(`${e.target.id}`);
+        });
+    });
+
+    // DARK MODE
+    const darkModeBtn = document.querySelector('.dark-mode-btn');
+    const darkMode = document.querySelectorAll('.settings-color');
+
+    darkModeBtn.addEventListener('click', () => {
+        darkMode.forEach((element) => {
+            const changeMode = element.classList.toggle('dark');
+            localStorage.setItem('Dark Mode', changeMode);
+        });
+    });
+
+    const darkModeStorage = localStorage.getItem('Dark Mode');
+
+    if(darkModeStorage === 'true'){
+        darkMode.forEach((element) => {
+            element.classList.add('dark');
+        });
+    }
 
 // SAVINGS ITEM AND AMOUNT BUTTON AND FUNCTION
     const itemBtn = document.querySelector('#savingDescription');
@@ -68,8 +127,10 @@ function savingsCalculator(){
         const total = parseFloat(amount);
 
         // PREVENT NEW GOAL IF THERE IS LOCAL STORAGE ALREADY PRESENT
-        if(localStorage.length > 0){
+        if(localStorage.length > 2){
             alert('You must clear current goal and amount before entering new one');
+            storageCurrent = localStorage.getItem('Current Amount');
+            amount = storageCurrent;
             return;
         }
 
@@ -141,11 +202,15 @@ function savingsCalculator(){
         navStorage = parseFloat(localStorage.getItem('Nav Amount'));
 
         // CELEBRATION DISPLAY MESSAGE UPON COMPLETING GOAL
-        const msg = 'YOU DID IT! GO CHASE YOUR DREAMS!';
-        const celebrate = document.querySelector('#celebrate');
-        if(amount == 0){
-            celebrate.classList.add('complete');
-            celebrate.innerHTML = msg;
+        const celebration = document.querySelector('.modal-completion');
+        if(total === 0){
+            nav.classList.remove('open');
+            celebration.classList.add('open');
+
+            const closeModalBtn = document.querySelector('.close-modal-btn');
+            closeModalBtn.addEventListener('click', () => {
+                celebration.classList.remove('open');
+            });
         };
     };
 };
