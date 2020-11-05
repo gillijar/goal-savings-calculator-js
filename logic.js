@@ -1,45 +1,46 @@
 // 1. Figure out local storage for font size and how to make it stay after app has been closed
-// 2. FINISH APP!
+// 2. Better modal design
+// 3. FINISH APP!
 
 window.addEventListener('DOMContentLoaded', savingsCalculator);
 
 function savingsCalculator(){
 
-        let amount;
-        let start;
+    let amount;
+    let start;
 
-        // REG EX TO ADD COMMAS TO NUMBERS IN THE THOUSANDS
-        function thousandsSeparator(num){
-            const numParts = num.toString().split(".");
-            numParts[0] = numParts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            return numParts.join(".");
-        }
+    // REG EX TO ADD COMMAS TO NUMBERS IN THE THOUSANDS
+    function thousandsSeparator(num){
+        const numParts = num.toString().split(".");
+        numParts[0] = numParts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return numParts.join(".");
+    }
 
-        // SCREEN DISPLAY
-        const itemDisplay = document.querySelector('.savingItem');
-        const amountDisplay = document.querySelector('.savingAmount');
-        const navTotal = document.querySelector('#navTotal');
-        const navDeposit = document.querySelector('#navDeposit');
+    // SCREEN DISPLAY
+    const itemDisplay = document.querySelector('.savingItem');
+    const amountDisplay = document.querySelector('.savingAmount');
+    const navTotal = document.querySelector('#navTotal');
+    const navDeposit = document.querySelector('#navDeposit');
 
-        // LOCAL STORAGE
-        if(localStorage.length > 2){
-            const storageItem = localStorage.getItem('Saving Item');
-            const storageAmount = localStorage.getItem('Saving Amount');
-            let storageCurrent = localStorage.getItem('Current Amount');
-            let navStorage = localStorage.getItem('Nav Amount');
+    // LOCAL STORAGE
+    if(localStorage.length > 3){
+        const storageItem = localStorage.getItem('Saving Item');
+        const storageAmount = localStorage.getItem('Saving Amount');
+        let storageCurrent = localStorage.getItem('Current Amount');
+        let navStorage = localStorage.getItem('Nav Amount');
 
-            itemDisplay.innerHTML = `${storageItem}`;
-            amountDisplay.innerHTML = thousandsSeparator(`$${storageCurrent}`);
-            navDeposit.innerHTML = thousandsSeparator(`$${navStorage}`);
-            navTotal.innerHTML = thousandsSeparator(`$${storageAmount}`);
-            start = parseFloat(navStorage);
-            amount = parseFloat(storageCurrent);
-        } 
-        
-        else {
-            start = 0;
-        }
-
+        itemDisplay.innerHTML = `${storageItem}`;
+        amountDisplay.innerHTML = thousandsSeparator(`$${storageCurrent}`);
+        navDeposit.innerHTML = thousandsSeparator(`$${navStorage}`);
+        navTotal.innerHTML = thousandsSeparator(`$${storageAmount}`);
+        start = parseFloat(navStorage);
+        amount = parseFloat(storageCurrent);
+    } 
+    
+    else {
+        start = 0;
+    }
+    
 // NAV BUTTON AND FUNCTION
     const navBtn = document.querySelector('.burger');
     const nav = document.querySelector('nav');
@@ -52,14 +53,15 @@ function savingsCalculator(){
 // CLEAR LOCAL STORAGE
     const clearStorageBtn = document.querySelector('#clearStorage');
     clearStorageBtn.addEventListener('click', () => {
-        if(localStorage.length > 2){
-            alert('Clicking OK will delete all current data and create a new file');
-            localStorage.removeItem('Saving Item');
-            localStorage.removeItem('Saving Amount');
-            localStorage.removeItem('Current Amount');
-            localStorage.removeItem('Nav Amount');
-            location.reload();
-        }
+        if(localStorage.length > 3){
+            if(confirm('Clicking OK will delete all current data and create a new file')) {
+                localStorage.removeItem('Saving Item');
+                localStorage.removeItem('Saving Amount');
+                localStorage.removeItem('Current Amount');
+                localStorage.removeItem('Nav Amount');
+                location.reload();
+            };
+        };
     });
 
 // SETTINGS
@@ -78,10 +80,26 @@ function savingsCalculator(){
 
     backgroundImages.forEach((image) => {
         image.addEventListener('click', (e) => {
+            backgroundImages.forEach((image) => {
+                image.classList.remove('current');
+            });
+
             const newBkg = body.style.backgroundImage = `url(img/${e.target.id}.jpeg)`;
+            e.target.classList.add('current');
+
             localStorage.setItem('Background Image', newBkg);
+            localStorage.setItem('Current', e.target.id);
         });
     });
+
+    const storageBackgroundHover = localStorage.getItem('Current');
+    if(storageBackgroundHover){
+        const currentHover = document.querySelector(`#${storageBackgroundHover}`);
+        currentHover.classList.add('current');
+    } else {
+        const defaultHover = document.querySelector('#bkg-1');
+        defaultHover.classList.add('current');
+    }
 
     const storageBackground = localStorage.getItem('Background Image');
     body.style.backgroundImage = storageBackground;
@@ -127,7 +145,7 @@ function savingsCalculator(){
         const total = parseFloat(amount);
 
         // PREVENT NEW GOAL IF THERE IS LOCAL STORAGE ALREADY PRESENT
-        if(localStorage.length > 2){
+        if(localStorage.length > 3){
             alert('You must clear current goal and amount before entering new one');
             storageCurrent = localStorage.getItem('Current Amount');
             amount = storageCurrent;
@@ -204,12 +222,19 @@ function savingsCalculator(){
         // CELEBRATION DISPLAY MESSAGE UPON COMPLETING GOAL
         const celebration = document.querySelector('.modal-completion');
         if(total === 0){
+            const title = document.querySelector('header');
+
             nav.classList.remove('open');
+            navBtn.classList.remove('rotate');
+            navBtn.classList.add('close');
             celebration.classList.add('open');
+            title.classList.add('center');
 
             const closeModalBtn = document.querySelector('.close-modal-btn');
             closeModalBtn.addEventListener('click', () => {
+                navBtn.classList.remove('close');
                 celebration.classList.remove('open');
+                title.classList.remove('center');
             });
         };
     };

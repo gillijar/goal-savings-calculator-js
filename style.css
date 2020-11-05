@@ -172,6 +172,67 @@ nav{
     letter-spacing: 0.12rem;
 }
 
+/* Celebration display upon completion */
+.modal-completion{
+    height: 92vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 8vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+}
+
+.close-modal-btn{
+    font-size: 2.3rem;
+    color: white;
+    position: absolute;
+    top: 1.5vh;
+    right: 1.5vh;
+    cursor: pointer;
+}
+
+.modal-display{
+    height: 60vh;
+    width: 50vw;
+    display: block;
+    position: relative;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-display::after {
+    content: "";
+    background: url(/img/modal-bkg.jpeg);
+    background-size: cover;
+    opacity: 0.75;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 8px;
+    position: absolute;
+    z-index: -1;   
+  }
+
+  .modal-display p{
+      height: 30vh;
+      width: 40vw;
+      font-size: 3rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      text-shadow: 5px 3px 5px black;
+  }
+
 /* Settings Page */
 .settings-container{
     height: 92vh;
@@ -557,6 +618,7 @@ input::-webkit-inner-spin-button {
         left: 0;
         bottom: 0;
         right: 0;
+        border-radius: 0px;
         position: absolute;
         z-index: -1;   
       }
@@ -645,6 +707,7 @@ input::-webkit-inner-spin-button {
         width: 110px;
         border-radius: 15px;
         box-shadow: 3px 2px 5px #3b3b3b;
+        transition: 0.25s ease-in-out;
     }
 
     #bkg-1{
@@ -788,4 +851,17 @@ input.dark:hover{
 .modal-completion.open{
     opacity: 1;
     z-index: 15;
+}
+
+.close{
+    display: none;
+}
+
+.current{
+    border: 5px solid #858585;
+    transform: scale(1.10);
+}
+
+header.center{
+    justify-content: center;
 }
