@@ -351,13 +351,13 @@ nav{
 }
 
 #f1, .f1{
-    font-size: 1.65rem;
+    font-size: 1.85rem;
 }
 #f2, .f2{
     font-size: 2.25rem;
 }
 #f3, .f3{
-    font-size: 2.85rem;
+    font-size: 2.65rem;
 }
 
 .dark-mode{
@@ -754,13 +754,13 @@ input::-webkit-inner-spin-button {
     }
 
     #f1, .f1{
-        font-size: 1.65rem;
+        font-size: 1.85rem;
     }
     #f2, .f2{
-        font-size: 2rem;
+        font-size: 2.25rem;
     }
     #f3, .f3{
-        font-size: 2.35rem;
+        font-size: 2.65rem;
     }
 
     .dark-mode{
@@ -840,6 +840,12 @@ input.dark::placeholder{
 
 input.dark:hover{
     color: white;
+}
+
+/* Font Size */
+
+.fontCurrent{
+    border-bottom: 2px solid #858585;
 }
 
 /* Open settings */

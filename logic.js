@@ -1,7 +1,3 @@
-// 1. Figure out local storage for font size and how to make it stay after app has been closed
-// 2. Better modal design
-// 3. FINISH APP!
-
 window.addEventListener('DOMContentLoaded', savingsCalculator);
 
 function savingsCalculator(){
@@ -9,12 +5,16 @@ function savingsCalculator(){
     let amount;
     let start;
 
-    // REG EX TO ADD COMMAS TO NUMBERS IN THE THOUSANDS
-    function thousandsSeparator(num){
-        const numParts = num.toString().split(".");
-        numParts[0] = numParts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        return numParts.join(".");
-    }
+    // BUTTONS FOR APP FUNCTIONS
+    const navBtn = document.querySelector('.burger');
+    const clearStorageBtn = document.querySelector('#clearStorage');
+    const openSettings = document.querySelectorAll('.settingsJS');
+    const backgroundImages = document.querySelectorAll('.background-img');
+    const fontSizeBtn = document.querySelectorAll('.size');
+    const darkModeBtn = document.querySelector('.dark-mode-btn');
+    const itemBtn = document.querySelector('#savingDescription').addEventListener('click', savingDescription);
+    const depositBtn = document.querySelector('#depositSubmit').addEventListener('click', depositAmount);
+    const closeModalBtn = document.querySelector('.close-modal-btn');
 
     // SCREEN DISPLAY
     const itemDisplay = document.querySelector('.savingItem');
@@ -23,13 +23,13 @@ function savingsCalculator(){
     const navDeposit = document.querySelector('#navDeposit');
 
     // LOCAL STORAGE
-    if(localStorage.length > 3){
-        const storageItem = localStorage.getItem('Saving Item');
-        const storageAmount = localStorage.getItem('Saving Amount');
-        let storageCurrent = localStorage.getItem('Current Amount');
-        let navStorage = localStorage.getItem('Nav Amount');
+    let storageItem = localStorage.getItem('Saving Item');
+    let storageAmount = localStorage.getItem('Saving Amount');
+    let storageCurrent = localStorage.getItem('Current Amount');
+    let navStorage = localStorage.getItem('Nav Amount');
 
-        itemDisplay.innerHTML = `${storageItem}`;
+    if(storageItem && storageAmount){
+        itemDisplay.innerHTML = storageItem;
         amountDisplay.innerHTML = thousandsSeparator(`$${storageCurrent}`);
         navDeposit.innerHTML = thousandsSeparator(`$${navStorage}`);
         navTotal.innerHTML = thousandsSeparator(`$${storageAmount}`);
@@ -40,10 +40,17 @@ function savingsCalculator(){
     else {
         start = 0;
     }
+
+    // REG EX TO ADD COMMAS TO NUMBERS IN THE THOUSANDS
+    function thousandsSeparator(num){
+        const numParts = num.toString().split(".");
+        numParts[0] = numParts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return numParts.join(".");
+    }
     
-// NAV BUTTON AND FUNCTION
-    const navBtn = document.querySelector('.burger');
+// NAV FUNCTION
     const nav = document.querySelector('nav');
+
     navBtn.addEventListener('click', () => {
         nav.classList.toggle('open');
         navBtn.classList.toggle('rotate');
@@ -51,9 +58,8 @@ function savingsCalculator(){
     });
 
 // CLEAR LOCAL STORAGE
-    const clearStorageBtn = document.querySelector('#clearStorage');
     clearStorageBtn.addEventListener('click', () => {
-        if(localStorage.length > 3){
+        if(storageItem && storageAmount){
             if(confirm('Clicking OK will delete all current data and create a new file')) {
                 localStorage.removeItem('Saving Item');
                 localStorage.removeItem('Saving Amount');
@@ -65,7 +71,6 @@ function savingsCalculator(){
     });
 
 // SETTINGS
-    const openSettings = document.querySelectorAll('.settingsJS');
     const settingsContainer = document.querySelector('.settings-container');
 
     openSettings.forEach((button) => {
@@ -75,7 +80,6 @@ function savingsCalculator(){
     });
 
     // CHANGE BACKGROUND
-    const backgroundImages = document.querySelectorAll('.background-img');
     const body = document.querySelector('body');
 
     backgroundImages.forEach((image) => {
@@ -93,28 +97,45 @@ function savingsCalculator(){
     });
 
     const storageBackgroundHover = localStorage.getItem('Current');
-    if(storageBackgroundHover){
-        const currentHover = document.querySelector(`#${storageBackgroundHover}`);
-        currentHover.classList.add('current');
-    } else {
-        const defaultHover = document.querySelector('#bkg-1');
-        defaultHover.classList.add('current');
-    }
+
+        if(storageBackgroundHover){
+            const currentHover = document.querySelector(`#${storageBackgroundHover}`);
+            currentHover.classList.add('current');
+        } else {
+            const defaultHover = document.querySelector('#bkg-1');
+            defaultHover.classList.add('current');
+        }
 
     const storageBackground = localStorage.getItem('Background Image');
     body.style.backgroundImage = storageBackground;
 
     // CHANGE FONT SIZE
-    const fontSizeBtn = document.querySelectorAll('.size');
     fontSizeBtn.forEach((button) => {
         button.addEventListener('click', (e) => {
-            itemDisplay.classList = 'savingItem';
+            fontSizeBtn.forEach((button) => {
+                itemDisplay.classList = 'savingItem';
+                button.classList.remove('fontCurrent');
+            });
+
             const changeFont = itemDisplay.classList.add(`${e.target.id}`);
+            e.target.classList.add('fontCurrent');
+
+            localStorage.setItem('Font Size', e.target.id);
         });
     });
 
+    const storageFont = localStorage.getItem('Font Size');
+
+        if(storageFont){
+            const currentFont = document.querySelector(`#${storageFont}`);
+            currentFont.classList.add('fontCurrent');
+            itemDisplay.classList.add(storageFont);
+        } else {
+            const defaultFont = document.querySelector('#f1');
+            defaultFont.classList.add('fontCurrent');
+        }
+
     // DARK MODE
-    const darkModeBtn = document.querySelector('.dark-mode-btn');
     const darkMode = document.querySelectorAll('.settings-color');
 
     darkModeBtn.addEventListener('click', () => {
@@ -132,10 +153,7 @@ function savingsCalculator(){
         });
     }
 
-// SAVINGS ITEM AND AMOUNT BUTTON AND FUNCTION
-    const itemBtn = document.querySelector('#savingDescription');
-    itemBtn.addEventListener('click', savingDescription);
-
+// SAVINGS ITEM AND AMOUNT FUNCTION
     function savingDescription(){
         const savingItem = document.querySelector('#saving');
         const savingAmount = document.querySelector('#savingsAmount');
@@ -145,8 +163,8 @@ function savingsCalculator(){
         const total = parseFloat(amount);
 
         // PREVENT NEW GOAL IF THERE IS LOCAL STORAGE ALREADY PRESENT
-        if(localStorage.length > 3){
-            alert('You must clear current goal and amount before entering new one');
+        if(storageItem && storageAmount){
+            alert('You must clear current goal before entering new one');
             storageCurrent = localStorage.getItem('Current Amount');
             amount = storageCurrent;
             return;
@@ -164,24 +182,24 @@ function savingsCalculator(){
         }
 
         // DISPLAY FOR GOAL ITEM AND AMOUNT
-        itemDisplay.innerHTML = `${item}`;
+        itemDisplay.innerHTML = item;
         amountDisplay.innerHTML = thousandsSeparator(`$${total.toFixed(2)}`);
         navTotal.innerHTML = thousandsSeparator(`$${total.toFixed(2)}`);
 
         savingItem.value = '';
         savingAmount.value = '';
 
-         // LOCAL STORAGE
-         localStorage.setItem('Saving Item', item);
-         localStorage.setItem('Current Amount', total.toFixed(2));
-         localStorage.setItem('Saving Amount', total.toFixed(2)); 
-         localStorage.setItem('Nav Amount', 0);
+        // LOCAL STORAGE
+        localStorage.setItem('Saving Item', item);
+        localStorage.setItem('Current Amount', total.toFixed(2));
+        localStorage.setItem('Saving Amount', total.toFixed(2)); 
+        localStorage.setItem('Nav Amount', 0);
+
+        storageItem = localStorage.getItem('Saving Item');
+        storageAmount = localStorage.getItem('Saving Amount');
     };
 
-// DEPOSIT BUTTON AND FUNCTION
-    const depositBtn = document.querySelector('#depositSubmit');
-    depositBtn.addEventListener('click', depositAmount);
-
+// DEPOSIT FUNCTION
     function depositAmount(){
         const deposit = document.querySelector('#savingsDeposit');
         const depInput = deposit.value;
@@ -189,8 +207,9 @@ function savingsCalculator(){
         const navDepositInput = parseFloat(depInput);
 
         // PREVENT DEPOSIT SUBMIT IF THERE IS NO GOAL OR AMOUNT
-        if(itemDisplay.innerHTML === '' || amountDisplay.innerHTML === ''){
+        if(itemDisplay.innerHTML === '' && amountDisplay.innerHTML === ''){
             alert('You must enter a goal item and amount first');
+            deposit.value = '';
             return;
         }
 
@@ -221,16 +240,17 @@ function savingsCalculator(){
 
         // CELEBRATION DISPLAY MESSAGE UPON COMPLETING GOAL
         const celebration = document.querySelector('.modal-completion');
-        if(total === 0){
+        
+        if(total <= 0.00){
+            // MODAL POP UP
             const title = document.querySelector('header');
-
             nav.classList.remove('open');
             navBtn.classList.remove('rotate');
             navBtn.classList.add('close');
             celebration.classList.add('open');
             title.classList.add('center');
 
-            const closeModalBtn = document.querySelector('.close-modal-btn');
+            // CLOSE MODAL
             closeModalBtn.addEventListener('click', () => {
                 navBtn.classList.remove('close');
                 celebration.classList.remove('open');
