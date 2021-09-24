@@ -41,8 +41,8 @@
   }
 
   &__total-deposit {
-    font-size: 1.4rem;
-    margin-top: 20px;
+    font-size: 2.2rem;
+    margin-top: 2rem;
     display: flex;
     align-items: center;
   }
@@ -59,13 +59,13 @@
 
   &__btn {
     width: 10vw;
-    height: 32.5px;
-    border-radius: 35px;
-    font-size: 1rem;
+    height: 3.25rem;
+    border-radius: 3.5rem;
+    font-size: 1.6rem;
     background: #55bd71;
     border: 2px solid #3e7a4e;
     color: white;
-    letter-spacing: 0.18rem;
+    letter-spacing: 0.28rem;
     outline: none;
     cursor: pointer;
     transition: 0.35s;
@@ -73,19 +73,19 @@
 }
 
 .input {
-  margin: 8px;
+  margin: 0.8rem;
   width: 70%;
-  height: 35px;
-  font-size: 1rem;
-  padding: 10px;
+  height: 3.5rem;
+  font-size: 1.6rem;
+  padding: 1rem;
   border: 1.5px solid gray;
-  border-radius: 35px;
+  border-radius: 3.5rem;
   outline: none;
   transition: 0.35s;
 }
 
 #clear-storage {
-  height: 45px;
+  height: 4.5rem;
   width: 12vw;
-  border-radius: 40px;
+  border-radius: 4rem;
 }
