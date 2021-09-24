@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap"
       rel="stylesheet"
@@ -19,25 +19,25 @@
   <body>
     <div class="body-container">
       <!-- Header with button to open nav -->
-      <header>
-        <div class="title">
+      <header class="header">
+        <div class="header__title">
           <p>Savings Countdown</p>
         </div>
 
-        <div class="burger">
-          <div id="line1"></div>
-          <div id="line2"></div>
-          <div id="line3"></div>
+        <div class="header__burger">
+          <div class="header__burger--line line1"></div>
+          <div class="header__burger--line line2"></div>
+          <div class="header__burger--line line3"></div>
         </div>
       </header>
 
       <!-- Input Fields -->
-      <nav class="settings-color">
-        <div class="input-container">
-          <div class="clearBtn">
-            <button id="clearStorage" class="btn">New Goal</button>
+      <nav class="nav settings-color">
+        <div class="nav__input-container">
+          <div class="nav__clear-btn">
+            <button id="clear-storage" class="nav__btn">New Goal</button>
           </div>
-          <div class="inputGoals">
+          <div class="nav__input-goals">
             <input
               type="text"
               id="saving"
@@ -50,18 +50,18 @@
               class="input settings-color"
               placeholder="What is your goal?"
             /><br />
-            <button id="savingDescription" class="btn">Submit</button>
+            <button id="savingDescription" class="nav__btn">Submit</button>
           </div>
 
-          <div class="depositAmount">
+          <div class="nav__deposit-amount">
             <input
               type="number"
               id="savingsDeposit"
               class="input settings-color"
               placeholder="Deposit"
             /><br />
-            <button id="depositSubmit" class="btn">Submit</button>
-            <div class="totalDeposit">
+            <button id="depositSubmit" class="nav__btn">Submit</button>
+            <div class="nav__total-deposit">
               <p id="navAmount">
                 <span id="navDeposit">$0</span> / <span id="navTotal">$0</span>
               </p>

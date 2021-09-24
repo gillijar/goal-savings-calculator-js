@@ -1,0 +1,127 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Larger Media Screens */
+body {
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+}
+
+.body-container {
+  height: 100vh;
+  width: 100vw;
+  /* overflow-x: hidden; */
+  overflow-y: hidden;
+  position: relative;
+}
+
+.nav {
+  height: 92vh;
+  width: 30vw;
+  position: absolute;
+  top: 8vh;
+  right: 0;
+  background: #d4d4d4;
+  transform: translateX(100%);
+  transition: 0.5s ease-in-out;
+  color: white;
+}
+.nav__input-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.nav__clear-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav__input-goals {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.nav__deposit-amount {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.nav__total-deposit {
+  font-size: 1.4rem;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+.nav__btn {
+  width: 10vw;
+  height: 32.5px;
+  border-radius: 35px;
+  font-size: 1rem;
+  background: #55bd71;
+  border: 2px solid #3e7a4e;
+  color: white;
+  letter-spacing: 0.18rem;
+  outline: none;
+  cursor: pointer;
+  transition: 0.35s;
+}
+
+.input {
+  margin: 8px;
+  width: 70%;
+  height: 35px;
+  font-size: 1rem;
+  padding: 10px;
+  border: 1.5px solid gray;
+  border-radius: 35px;
+  outline: none;
+  transition: 0.35s;
+}
+
+#clear-storage {
+  height: 45px;
+  width: 12vw;
+  border-radius: 40px;
+}
+
+.header {
+  border: 2px solid black;
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: black;
+  /* Button */
+}
+.header__title {
+  font-size: 1.37rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.18rem;
+  color: white;
+}
+.header__burger {
+  position: absolute;
+  right: 15px;
+  cursor: pointer;
+}
+.header__burger--line {
+  width: 25px;
+  height: 2.75px;
+  background-color: white;
+  margin: 5px;
+  transition: 0.7s;
+}
