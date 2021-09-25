@@ -9,6 +9,10 @@
   transition: 0.5s ease-in-out;
   color: white;
 
+  @include respond(phone) {
+    width: 100vw;
+  }
+
   &__input-container {
     height: 100%;
     width: 100%;
@@ -22,6 +26,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @include respond(phone) {
+      height: 20vh;
+    }
   }
 
   &__input-goals {
@@ -30,6 +38,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    @include respond(phone) {
+      height: 30vh;
+    }
   }
 
   &__deposit-amount {
@@ -38,6 +50,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    @include respond(phone) {
+      height: 40vh;
+    }
   }
 
   &__total-deposit {
@@ -45,6 +61,11 @@
     margin-top: 2rem;
     display: flex;
     align-items: center;
+
+    @include respond(phone) {
+      font-size: 2.6rem;
+      height: 10vh;
+    }
   }
 
   &__settings-btn {
@@ -55,6 +76,10 @@
     text-shadow: 2px 2px 2px gray;
     color: white;
     cursor: pointer;
+
+    @include respond(phone) {
+      font-size: 3.6rem;
+    }
   }
 
   &__btn {
@@ -69,6 +94,11 @@
     outline: none;
     cursor: pointer;
     transition: 0.35s;
+
+    @include respond(phone) {
+      width: 35vw;
+      height: 3.5rem;
+    }
   }
 }
 
@@ -82,10 +112,27 @@
   border-radius: 3.5rem;
   outline: none;
   transition: 0.35s;
+
+  @include respond(phone) {
+    width: 65%;
+    height: 4rem;
+    font-size: 1.6rem;
+  }
+
+  &:focus {
+    width: 80%;
+    border: 2px solid #5c5c5c;
+  }
 }
 
 #clear-storage {
   height: 4.5rem;
   width: 12vw;
   border-radius: 4rem;
+
+  @include respond(phone) {
+    width: 40vw;
+    position: absolute;
+    top: 10vh;
+  }
 }
