@@ -210,6 +210,11 @@ input::-webkit-inner-spin-button {
   opacity: 0;
   z-index: -10;
   transition: 0.25s ease-in-out; }
+  @media only screen and (max-width: 37.5em) {
+    .settings {
+      height: 100vh;
+      width: 100vw;
+      top: 0; } }
   .settings__header {
     background: #000;
     height: 8vh;
@@ -225,6 +230,9 @@ input::-webkit-inner-spin-button {
     display: flex;
     justify-content: center;
     align-items: center; }
+    @media only screen and (max-width: 37.5em) {
+      .settings__btn {
+        width: 14vw; } }
     .settings__btn--back {
       font-size: 2rem;
       color: white;
@@ -232,14 +240,23 @@ input::-webkit-inner-spin-button {
   .settings__title {
     font-size: 2rem;
     color: white; }
+    @media only screen and (max-width: 37.5em) {
+      .settings__title {
+        font-size: 2.2rem; } }
   .settings__change-bkg {
     margin-top: 1vh;
     width: 95%;
     margin: auto; }
+    @media only screen and (max-width: 37.5em) {
+      .settings__change-bkg {
+        margin-top: 2vh; } }
     .settings__change-bkg p {
-      padding: 8px;
+      padding: 0.8rem;
       font-size: 1.7rem;
       border-bottom: 1px solid black; }
+      @media only screen and (max-width: 37.5em) {
+        .settings__change-bkg p {
+          padding: 1rem; } }
   .settings__images {
     height: 35vh;
     width: 100%;
@@ -248,6 +265,10 @@ input::-webkit-inner-spin-button {
     grid-template-columns: auto auto auto;
     justify-content: space-around;
     align-items: center; }
+    @media only screen and (max-width: 37.5em) {
+      .settings__images {
+        height: 40vh;
+        width: 95vw; } }
     .settings__images--img {
       background-size: cover;
       object-fit: cover;
@@ -258,6 +279,11 @@ input::-webkit-inner-spin-button {
       box-shadow: 3px 2px 5px #3b3b3b;
       cursor: pointer;
       overflow: hidden; }
+      @media only screen and (max-width: 37.5em) {
+        .settings__images--img {
+          height: 11rem;
+          width: 11rem;
+          border-radius: 1.5rem; } }
       .settings__images--img img {
         height: 100%;
         width: 100%;
@@ -266,10 +292,17 @@ input::-webkit-inner-spin-button {
     margin-top: 1vh;
     width: 95%;
     margin: auto; }
+    @media only screen and (max-width: 37.5em) {
+      .settings__change-fontsize {
+        margin-top: 2vh; } }
     .settings__change-fontsize p {
       padding: 0.8rem;
       font-size: 1.05rem;
       border-bottom: 1px solid black; }
+      @media only screen and (max-width: 37.5em) {
+        .settings__change-fontsize p {
+          padding: 1rem;
+          font-size: 1.7rem; } }
   .settings__fontsize {
     height: 15vh;
     display: flex;
@@ -292,8 +325,14 @@ input::-webkit-inner-spin-button {
     justify-content: space-between;
     align-items: center;
     border-top: 1px solid black; }
+    @media only screen and (max-width: 37.5em) {
+      .settings__dark-mode {
+        padding: 1rem; } }
     .settings__dark-mode p {
       font-size: 1.6rem; }
+      @media only screen and (max-width: 37.5em) {
+        .settings__dark-mode p {
+          font-size: 1.7rem; } }
     .settings__dark-mode--container {
       width: 40px;
       height: 20px;
@@ -302,6 +341,10 @@ input::-webkit-inner-spin-button {
       display: flex;
       align-items: center;
       transition: 0.25s; }
+      @media only screen and (max-width: 37.5em) {
+        .settings__dark-mode--container {
+          height: 3rem;
+          border-radius: 3rem; } }
     .settings__dark-mode--btn {
       width: 20px;
       height: 20px;
@@ -310,6 +353,10 @@ input::-webkit-inner-spin-button {
       transform: translateX(1%);
       transition: 0.25s;
       cursor: pointer; }
+      @media only screen and (max-width: 37.5em) {
+        .settings__dark-mode--btn {
+          height: 3rem;
+          width: 3rem; } }
 
 .display {
   height: 20vh;
