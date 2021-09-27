@@ -1,0 +1,23 @@
+.nav.open {
+  transform: translateX(0%);
+}
+
+.settings.open {
+  opacity: 1;
+  z-index: 10;
+}
+
+.rotate .line1 {
+  transform: rotate(-45deg) translate(-1px, 4px);
+}
+.rotate .line2 {
+  display: none;
+}
+.rotate .line3 {
+  transform: rotate(45deg) translate(-1px, -4px);
+}
+
+.current {
+  border: 5px solid #858585;
+  transform: scale(1.1);
+}
