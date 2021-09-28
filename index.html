@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap"
       rel="stylesheet"
@@ -19,128 +19,142 @@
   <body>
     <div class="body-container">
       <!-- Header with button to open nav -->
-      <header>
-        <div class="title">
+      <header class="header">
+        <div class="header__title">
           <p>Savings Countdown</p>
         </div>
 
-        <div class="burger">
-          <div id="line1"></div>
-          <div id="line2"></div>
-          <div id="line3"></div>
+        <div class="header__burger">
+          <div class="header__burger--line line1"></div>
+          <div class="header__burger--line line2"></div>
+          <div class="header__burger--line line3"></div>
         </div>
       </header>
 
       <!-- Input Fields -->
-      <nav class="settings-color">
-        <div class="input-container">
-          <div class="clearBtn">
-            <button id="clearStorage" class="btn">New Goal</button>
+      <nav class="nav settings-color">
+        <div class="nav__input-container">
+          <div class="nav__clear-btn">
+            <button id="clear-storage" class="nav__btn">New Goal</button>
           </div>
-          <div class="inputGoals">
+          <form class="nav__input-goals">
             <input
               type="text"
               id="saving"
               class="input settings-color"
               placeholder="What are you saving for?"
+              autocomplete="off"
             />
             <input
               type="number"
               id="savingsAmount"
               class="input settings-color"
               placeholder="What is your goal?"
+              autocomplete="off"
             /><br />
-            <button id="savingDescription" class="btn">Submit</button>
-          </div>
+            <button class="nav__btn">Submit</button>
+          </form>
 
-          <div class="depositAmount">
+          <form class="nav__deposit-amount">
             <input
               type="number"
               id="savingsDeposit"
               class="input settings-color"
               placeholder="Deposit"
+              autocomplete="off"
             /><br />
-            <button id="depositSubmit" class="btn">Submit</button>
-            <div class="totalDeposit">
+            <button class="nav__btn">Submit</button>
+            <div class="nav__total-deposit">
               <p id="navAmount">
                 <span id="navDeposit">$0</span> / <span id="navTotal">$0</span>
               </p>
             </div>
-          </div>
+          </form>
         </div>
 
         <!-- Settings Button -->
         <div>
-          <i class="fas fa-cog settingsBtn settingsJS"></i>
+          <i class="fas fa-cog nav__settings-btn settings-btn"></i>
         </div>
       </nav>
 
       <!-- Display Progress -->
       <div class="display">
-        <p class="savingItem"></p>
-        <p class="savingAmount"></p>
+        <p class="display__saving-item"></p>
+        <p class="display__saving-amount"></p>
       </div>
 
       <!-- Modal on goal completion -->
-      <div class="modal-completion">
-        <div class="close-modal">
-          <i class="far fa-times-circle close-modal-btn"></i>
-        </div>
-
-        <div class="modal-display">
+      <div class="modal">
+        <div class="modal__display">
+          <div class="modal__display--close">
+            <i class="far fa-times-circle modal__display--close-btn"></i>
+          </div>
           <p>Congratulations! you completed your goal!</p>
         </div>
       </div>
 
       <!-- Settings -->
-      <div class="settings-container settings-color">
-        <!-- Header -->
-        <header class="settings-title">
+      <div class="settings settings-color">
+        <!-- was settings-container -->
+        <header class="settings__header">
           <!-- Back Button -->
-          <div class="btn-container">
-            <i class="fas fa-arrow-left back-btn settingsJS"></i>
+          <div class="settings__btn">
+            <i class="fas fa-arrow-left settings__btn--back settings-btn"></i>
           </div>
 
-          <p class="title">Settings</p>
+          <p class="settings__title">Settings</p>
         </header>
 
         <!-- Change Background Image -->
-        <section class="change-bkg">
+        <section class="settings__change-bkg">
           <p>Change background image</p>
 
-          <div class="images">
-            <div id="bkg-1" class="background-img"></div>
-            <div id="bkg-2" class="background-img"></div>
-            <div id="bkg-3" class="background-img"></div>
-            <div id="bkg-4" class="background-img"></div>
-            <div id="bkg-5" class="background-img"></div>
-            <div id="bkg-6" class="background-img"></div>
+          <div class="settings__images">
+            <div id="bkg-1" class="settings__images--img">
+              <img src="/img/bkg-1.jpeg" alt="img1" class="img" />
+            </div>
+            <div id="bkg-2" class="settings__images--img">
+              <img src="/img/bkg-2.jpeg" alt="img2" class="img" />
+            </div>
+            <div id="bkg-3" class="settings__images--img">
+              <img src="/img/bkg-3.jpeg" alt="img3" class="img" />
+            </div>
+            <div id="bkg-4" class="settings__images--img">
+              <img src="/img/bkg-4.jpeg" alt="img4" class="img" />
+            </div>
+            <div id="bkg-5" class="settings__images--img">
+              <img src="/img/bkg-5.jpeg" alt="img5" class="img" />
+            </div>
+            <div id="bkg-6" class="settings__images--img">
+              <img src="/img/bkg-6.jpeg" alt="img6" class="img" />
+            </div>
           </div>
         </section>
 
         <!-- Change Font Size -->
-        <section class="change-fontsize">
+        <section class="settings__change-fontsize">
           <p>Change font size</p>
 
-          <div class="fontsize">
-            <div id="f1" class="size">Aa</div>
-            <div id="f2" class="size">Aa</div>
-            <div id="f3" class="size">Aa</div>
+          <div class="settings__fontsize">
+            <div class="settings__fontsize--f1 size">Aa</div>
+            <div class="settings__fontsize--f2 size">Aa</div>
+            <div class="settings__fontsize--f3 size">Aa</div>
           </div>
         </section>
 
         <!-- Change background from light to dark -->
-        <section class="dark-mode">
+        <section class="settings__dark-mode">
           <p>Dark mode</p>
 
-          <div class="dark-mode-container settings-color">
-            <div class="dark-mode-btn settings-color"></div>
+          <div class="settings__dark-mode--container settings-color">
+            <button class="settings__dark-mode--btn settings-color">Off</button>
           </div>
         </section>
       </div>
     </div>
 
     <!-- Javascript -->
-    <script src="logic.js"></script>
+    <script type="module" src="logic.js"></script>
   </body>
 </html>

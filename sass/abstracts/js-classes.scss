@@ -1,0 +1,62 @@
+.nav.open {
+  transform: translateX(0%);
+}
+
+.settings.open {
+  opacity: 1;
+  z-index: 10;
+}
+
+.current {
+  border: 5px solid #858585;
+  transform: scale(1.1);
+}
+
+.settings__dark-mode--btn.dark {
+  color: lime;
+}
+
+.nav.dark {
+  background-color: #292929;
+}
+
+.settings.dark {
+  background-color: #292929;
+  color: white;
+}
+
+.input.dark {
+  background-color: #9c9c9c;
+  color: white;
+}
+
+.input.dark::placeholder {
+  color: white;
+}
+
+.input.dark:hover {
+  color: white;
+}
+
+.modal.open {
+  opacity: 1;
+  z-index: 15;
+}
+
+.close {
+  display: none;
+}
+
+.font-current {
+  border-bottom: 2px solid #858585;
+}
+
+.f1 {
+  font-size: 3rem;
+}
+.f2 {
+  font-size: 3.6rem;
+}
+.f3 {
+  font-size: 4.2rem;
+}

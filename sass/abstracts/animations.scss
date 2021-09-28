@@ -1,0 +1,9 @@
+.rotate .line1 {
+  transform: rotate(-45deg) translate(-1px, 4px);
+}
+.rotate .line2 {
+  display: none;
+}
+.rotate .line3 {
+  transform: rotate(45deg) translate(-1px, -4px);
+}

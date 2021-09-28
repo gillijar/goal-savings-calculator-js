@@ -1,0 +1,76 @@
+/* Celebration display upon completion */
+.modal {
+  height: 92vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 8vh;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: -1;
+  opacity: 0;
+  transition: 0.5s ease-in-out;
+
+  &__display {
+    height: 60vh;
+    width: 50vw;
+    display: block;
+    position: relative;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include respond(phone) {
+      height: 50vh;
+      width: 100vw;
+    }
+
+    &--close {
+      font-size: 3.2rem;
+      color: white;
+      position: absolute;
+      top: 1.5vh;
+      right: 1.5vh;
+      cursor: pointer;
+      z-index: 5;
+    }
+
+    &::after {
+      content: "";
+      background: url(../../img/modal-bkg.jpeg);
+      background-size: cover;
+      opacity: 0.75;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      border-radius: 8px;
+      position: absolute;
+      z-index: -1;
+
+      @include respond(phone) {
+        border-radius: 0px;
+      }
+    }
+
+    & p {
+      height: 30vh;
+      width: 40vw;
+      font-size: 3.2rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      text-shadow: 5px 3px 5px black;
+
+      @include respond(phone) {
+        height: 40vh;
+        width: 85vw;
+        font-size: 2.5rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,134 @@
+.nav {
+  height: 92vh;
+  width: 30vw;
+  position: absolute;
+  top: 8vh;
+  right: 0;
+  background: #d4d4d4;
+  transform: translateX(100%);
+  transition: 0.5s ease-in-out;
+  color: white;
+
+  @include respond(tab-port) {
+    width: 100vw;
+  }
+
+  &__input-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  &__clear-btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include respond(phone) {
+      height: 20vh;
+    }
+  }
+
+  &__input-goals {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @include respond(phone) {
+      height: 30vh;
+    }
+  }
+
+  &__deposit-amount {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @include respond(phone) {
+      height: 40vh;
+    }
+  }
+
+  &__total-deposit {
+    font-size: 2.2rem;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+
+    @include respond(phone) {
+      font-size: 2.6rem;
+      height: 10vh;
+    }
+  }
+
+  &__settings-btn {
+    font-size: 3.4rem;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    text-shadow: 2px 2px 2px gray;
+    color: white;
+    cursor: pointer;
+  }
+
+  &__btn {
+    width: 10vw;
+    height: 3.25rem;
+    border-radius: 3.5rem;
+    font-size: 1.6rem;
+    background: #55bd71;
+    border: 2px solid #3e7a4e;
+    color: white;
+    letter-spacing: 0.28rem;
+    outline: none;
+    cursor: pointer;
+    transition: 0.35s;
+
+    @include respond(phone) {
+      width: 35vw;
+      height: 3.5rem;
+    }
+  }
+}
+
+.input {
+  margin: 0.8rem;
+  width: 70%;
+  height: 3.5rem;
+  font-size: 1.6rem;
+  padding: 1rem;
+  border: 1.5px solid gray;
+  border-radius: 3.5rem;
+  outline: none;
+  transition: 0.35s;
+
+  @include respond(phone) {
+    width: 70%;
+    height: 4.5rem;
+    font-size: 1.6rem;
+  }
+
+  &:focus {
+    width: 80%;
+    border: 2px solid #5c5c5c;
+  }
+}
+
+#clear-storage {
+  height: 4.5rem;
+  width: 12vw;
+  border-radius: 4rem;
+
+  @include respond(phone) {
+    width: 40vw;
+    position: absolute;
+    top: 10vh;
+  }
+}
