@@ -1,10 +1,3 @@
-.nav.open {
-  transform: translateX(0%); }
-
-.settings.open {
-  opacity: 1;
-  z-index: 10; }
-
 .rotate .line1 {
   transform: rotate(-45deg) translate(-1px, 4px); }
 
@@ -14,9 +7,46 @@
 .rotate .line3 {
   transform: rotate(45deg) translate(-1px, -4px); }
 
+.nav.open {
+  transform: translateX(0%); }
+
+.settings.open {
+  opacity: 1;
+  z-index: 10; }
+
 .current {
   border: 5px solid #858585;
   transform: scale(1.1); }
+
+.settings__dark-mode--btn.dark {
+  color: lime; }
+
+.nav.dark {
+  background-color: #292929; }
+
+.settings.dark {
+  background-color: #292929;
+  color: white; }
+
+.input.dark {
+  background-color: #9c9c9c;
+  color: white; }
+
+.input.dark::placeholder {
+  color: white; }
+
+.input.dark:hover {
+  color: white; }
+
+.modal.open {
+  opacity: 1;
+  z-index: 15; }
+
+.close {
+  display: none; }
+
+.fontCurrent {
+  border-bottom: 2px solid #858585; }
 
 * {
   padding: 0;
@@ -187,6 +217,10 @@ input::-webkit-inner-spin-button {
     display: flex;
     justify-content: center;
     align-items: center; }
+    @media only screen and (max-width: 37.5em) {
+      .modal__display {
+        height: 50vh;
+        width: 100vw; } }
     .modal__display--close {
       font-size: 3.2rem;
       color: white;
@@ -207,6 +241,9 @@ input::-webkit-inner-spin-button {
       border-radius: 8px;
       position: absolute;
       z-index: -1; }
+      @media only screen and (max-width: 37.5em) {
+        .modal__display::after {
+          border-radius: 0px; } }
     .modal__display p {
       height: 30vh;
       width: 40vw;
@@ -217,6 +254,11 @@ input::-webkit-inner-spin-button {
       align-items: center;
       text-align: center;
       text-shadow: 5px 3px 5px black; }
+      @media only screen and (max-width: 37.5em) {
+        .modal__display p {
+          height: 40vh;
+          width: 85vw;
+          font-size: 2.5rem; } }
 
 .settings {
   height: 92vh;
@@ -270,7 +312,7 @@ input::-webkit-inner-spin-button {
         margin-top: 2vh; } }
     .settings__change-bkg p {
       padding: 0.8rem;
-      font-size: 1.7rem;
+      font-size: 1.6rem;
       border-bottom: 1px solid black; }
       @media only screen and (max-width: 37.5em) {
         .settings__change-bkg p {
@@ -315,12 +357,11 @@ input::-webkit-inner-spin-button {
         margin-top: 2vh; } }
     .settings__change-fontsize p {
       padding: 0.8rem;
-      font-size: 1.05rem;
+      font-size: 1.6rem;
       border-bottom: 1px solid black; }
       @media only screen and (max-width: 37.5em) {
         .settings__change-fontsize p {
-          padding: 1rem;
-          font-size: 1.7rem; } }
+          padding: 1rem; } }
   .settings__fontsize {
     height: 15vh;
     display: flex;
@@ -348,14 +389,9 @@ input::-webkit-inner-spin-button {
         padding: 1rem; } }
     .settings__dark-mode p {
       font-size: 1.6rem; }
-      @media only screen and (max-width: 37.5em) {
-        .settings__dark-mode p {
-          font-size: 1.7rem; } }
     .settings__dark-mode--container {
-      width: 40px;
-      height: 20px;
-      border-radius: 20px;
-      background: gray;
+      width: 6rem;
+      height: 2rem;
       display: flex;
       align-items: center;
       transition: 0.25s; }
@@ -364,11 +400,13 @@ input::-webkit-inner-spin-button {
           height: 3rem;
           border-radius: 3rem; } }
     .settings__dark-mode--btn {
-      width: 20px;
-      height: 20px;
-      border-radius: 20px;
-      background: white;
-      transform: translateX(1%);
+      font-size: 1.8rem;
+      background: none;
+      border: none;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       transition: 0.25s;
       cursor: pointer; }
       @media only screen and (max-width: 37.5em) {
@@ -389,13 +427,13 @@ input::-webkit-inner-spin-button {
   align-items: center;
   z-index: -10; }
   .display__saving-item {
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 500;
     letter-spacing: 0.12rem;
     text-transform: capitalize;
     text-align: center; }
   .display__saving-amount {
-    font-size: 2.4rem;
+    font-size: 3rem;
     font-weight: 500;
     letter-spacing: 0.12rem; }
 

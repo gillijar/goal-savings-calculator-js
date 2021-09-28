@@ -22,6 +22,11 @@
     justify-content: center;
     align-items: center;
 
+    @include respond(phone) {
+      height: 50vh;
+      width: 100vw;
+    }
+
     &--close {
       font-size: 3.2rem;
       color: white;
@@ -44,6 +49,10 @@
       border-radius: 8px;
       position: absolute;
       z-index: -1;
+
+      @include respond(phone) {
+        border-radius: 0px;
+      }
     }
 
     & p {
@@ -56,6 +65,12 @@
       align-items: center;
       text-align: center;
       text-shadow: 5px 3px 5px black;
+
+      @include respond(phone) {
+        height: 40vh;
+        width: 85vw;
+        font-size: 2.5rem;
+      }
     }
   }
 }

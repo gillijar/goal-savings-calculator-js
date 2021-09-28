@@ -64,7 +64,7 @@
 
     & p {
       padding: 0.8rem;
-      font-size: 1.7rem;
+      font-size: 1.6rem;
       border-bottom: 1px solid black;
 
       @include respond(phone) {
@@ -123,12 +123,11 @@
 
     & p {
       padding: 0.8rem;
-      font-size: 1.05rem;
+      font-size: 1.6rem;
       border-bottom: 1px solid black;
 
       @include respond(phone) {
         padding: 1rem;
-        font-size: 1.7rem;
       }
     }
   }
@@ -168,17 +167,11 @@
 
     & p {
       font-size: 1.6rem;
-
-      @include respond(phone) {
-        font-size: 1.7rem;
-      }
     }
 
     &--container {
-      width: 40px;
-      height: 20px;
-      border-radius: 20px;
-      background: gray;
+      width: 6rem;
+      height: 2rem;
       display: flex;
       align-items: center;
       transition: 0.25s;
@@ -190,11 +183,13 @@
     }
 
     &--btn {
-      width: 20px;
-      height: 20px;
-      border-radius: 20px;
-      background: white;
-      transform: translateX(1%);
+      font-size: 1.8rem;
+      background: none;
+      border: none;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       transition: 0.25s;
       cursor: pointer;
 

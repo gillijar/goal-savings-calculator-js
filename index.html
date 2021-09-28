@@ -43,12 +43,14 @@
               id="saving"
               class="input settings-color"
               placeholder="What are you saving for?"
+              autocomplete="off"
             />
             <input
               type="number"
               id="savingsAmount"
               class="input settings-color"
               placeholder="What is your goal?"
+              autocomplete="off"
             /><br />
             <button class="nav__btn">Submit</button>
           </form>
@@ -59,6 +61,7 @@
               id="savingsDeposit"
               class="input settings-color"
               placeholder="Deposit"
+              autocomplete="off"
             /><br />
             <button class="nav__btn">Submit</button>
             <div class="nav__total-deposit">
@@ -145,13 +148,13 @@
           <p>Dark mode</p>
 
           <div class="settings__dark-mode--container settings-color">
-            <div class="settings__dark-mode--btn settings-color"></div>
+            <button class="settings__dark-mode--btn settings-color">Off</button>
           </div>
         </section>
       </div>
     </div>
 
     <!-- Javascript -->
-    <script src="logic.js"></script>
+    <script type="module" src="logic.js"></script>
   </body>
 </html>
