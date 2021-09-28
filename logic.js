@@ -108,26 +108,33 @@ body.style.backgroundImage = storageBackground;
 fontSizeBtn.forEach((button) => {
   button.addEventListener("click", (e) => {
     fontSizeBtn.forEach((button) => {
-      itemDisplay.classList = "savingItem";
-      button.classList.remove("fontCurrent");
+      itemDisplay.classList = "display__saving-item";
+      amountDisplay.classList = "display__saving-amount";
+      button.classList.remove("font-current");
     });
 
-    const changeFont = itemDisplay.classList.add(`${e.target.id}`);
-    e.target.classList.add("fontCurrent");
+    const selectedFontSize = e.target.classList[0].split("-")[2];
 
-    localStorage.setItem("Font Size", e.target.id);
+    itemDisplay.classList.add(`${selectedFontSize}`);
+    amountDisplay.classList.add(`${selectedFontSize}`);
+    e.target.classList.add("font-current");
+
+    localStorage.setItem("Font Size", selectedFontSize);
   });
 });
 
 const storageFont = localStorage.getItem("Font Size");
 
 if (storageFont) {
-  const currentFont = document.querySelector(`#${storageFont}`);
-  currentFont.classList.add("fontCurrent");
+  const currentFont = document.querySelector(
+    `.settings__fontsize--${storageFont}`
+  );
+  currentFont.classList.add("font-current");
   itemDisplay.classList.add(storageFont);
+  amountDisplay.classList.add(storageFont);
 } else {
   const defaultFont = document.querySelector(".settings__fontsize--f1");
-  defaultFont.classList.add("fontCurrent");
+  defaultFont.classList.add("font-current");
 }
 
 // DARK MODE

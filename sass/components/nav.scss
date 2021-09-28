@@ -9,7 +9,7 @@
   transition: 0.5s ease-in-out;
   color: white;
 
-  @include respond(phone) {
+  @include respond(tab-port) {
     width: 100vw;
   }
 

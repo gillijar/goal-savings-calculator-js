@@ -45,8 +45,17 @@
 .close {
   display: none; }
 
-.fontCurrent {
+.font-current {
   border-bottom: 2px solid #858585; }
+
+.f1 {
+  font-size: 3rem; }
+
+.f2 {
+  font-size: 3.6rem; }
+
+.f3 {
+  font-size: 4.2rem; }
 
 * {
   padding: 0;
@@ -97,7 +106,7 @@ input::-webkit-inner-spin-button {
   transform: translateX(100%);
   transition: 0.5s ease-in-out;
   color: white; }
-  @media only screen and (max-width: 37.5em) {
+  @media only screen and (max-width: 56.25em) {
     .nav {
       width: 100vw; } }
   .nav__input-container {
@@ -368,14 +377,11 @@ input::-webkit-inner-spin-button {
     justify-content: space-evenly;
     align-items: center; }
     .settings__fontsize--f1 {
-      font-size: 3rem;
-      cursor: pointer; }
+      font-size: 3rem; }
     .settings__fontsize--f2 {
-      font-size: 3.6rem;
-      cursor: pointer; }
+      font-size: 3.6rem; }
     .settings__fontsize--f3 {
-      font-size: 4.2rem;
-      cursor: pointer; }
+      font-size: 4.2rem; }
   .settings__dark-mode {
     width: 95%;
     margin: auto;
@@ -391,8 +397,9 @@ input::-webkit-inner-spin-button {
       font-size: 1.6rem; }
     .settings__dark-mode--container {
       width: 6rem;
-      height: 2rem;
+      height: 3rem;
       display: flex;
+      justify-content: center;
       align-items: center;
       transition: 0.25s; }
       @media only screen and (max-width: 37.5em) {
@@ -400,7 +407,7 @@ input::-webkit-inner-spin-button {
           height: 3rem;
           border-radius: 3rem; } }
     .settings__dark-mode--btn {
-      font-size: 1.8rem;
+      font-size: 2rem;
       background: none;
       border: none;
       width: 100%;
@@ -427,15 +434,13 @@ input::-webkit-inner-spin-button {
   align-items: center;
   z-index: -10; }
   .display__saving-item {
-    font-size: 3rem;
     font-weight: 500;
-    letter-spacing: 0.12rem;
+    letter-spacing: 0.2rem;
     text-transform: capitalize;
     text-align: center; }
   .display__saving-amount {
-    font-size: 3rem;
     font-weight: 500;
-    letter-spacing: 0.12rem; }
+    letter-spacing: 0.2rem; }
 
 .header {
   border: 2px solid black;
