@@ -57,6 +57,25 @@
 .f3 {
   font-size: 4.2rem; }
 
+.saving-item {
+  font-weight: 500;
+  letter-spacing: 0.2rem;
+  text-transform: capitalize;
+  text-align: center; }
+
+.saving-amount {
+  font-weight: 500;
+  letter-spacing: 0.2rem; }
+
+#f1 {
+  font-size: 3rem; }
+
+#f2 {
+  font-size: 3.6rem; }
+
+#f3 {
+  font-size: 4.2rem; }
+
 * {
   padding: 0;
   margin: 0;
@@ -153,8 +172,8 @@ input::-webkit-inner-spin-button {
   .nav__settings-btn {
     font-size: 3.4rem;
     position: absolute;
-    bottom: 10px;
-    right: 10px;
+    bottom: 1.5rem;
+    right: 1.5rem;
     text-shadow: 2px 2px 2px gray;
     color: white;
     cursor: pointer; }
@@ -303,7 +322,7 @@ input::-webkit-inner-spin-button {
       .settings__btn {
         width: 14vw; } }
     .settings__btn--back {
-      font-size: 2rem;
+      font-size: 3rem;
       color: white;
       cursor: pointer; }
   .settings__title {
@@ -377,11 +396,14 @@ input::-webkit-inner-spin-button {
     justify-content: space-evenly;
     align-items: center; }
     .settings__fontsize--f1 {
-      font-size: 3rem; }
+      font-size: 3rem;
+      cursor: pointer; }
     .settings__fontsize--f2 {
-      font-size: 3.6rem; }
+      font-size: 3.6rem;
+      cursor: pointer; }
     .settings__fontsize--f3 {
-      font-size: 4.2rem; }
+      font-size: 4.2rem;
+      cursor: pointer; }
   .settings__dark-mode {
     width: 95%;
     margin: auto;
@@ -434,11 +456,13 @@ input::-webkit-inner-spin-button {
   align-items: center;
   z-index: -10; }
   .display__saving-item {
+    font-size: 3rem;
     font-weight: 500;
     letter-spacing: 0.2rem;
     text-transform: capitalize;
     text-align: center; }
   .display__saving-amount {
+    font-size: 3rem;
     font-weight: 500;
     letter-spacing: 0.2rem; }
 

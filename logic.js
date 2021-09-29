@@ -108,15 +108,15 @@ body.style.backgroundImage = storageBackground;
 fontSizeBtn.forEach((button) => {
   button.addEventListener("click", (e) => {
     fontSizeBtn.forEach((button) => {
-      itemDisplay.classList = "display__saving-item";
-      amountDisplay.classList = "display__saving-amount";
+      itemDisplay.classList = "saving-item";
+      amountDisplay.classList = "saving-amount";
       button.classList.remove("font-current");
     });
 
-    const selectedFontSize = e.target.classList[0].split("-")[2];
+    const selectedFontSize = e.target.id;
 
-    itemDisplay.classList.add(`${selectedFontSize}`);
-    amountDisplay.classList.add(`${selectedFontSize}`);
+    itemDisplay.setAttribute("id", `${selectedFontSize}`);
+    amountDisplay.setAttribute("id", `${selectedFontSize}`);
     e.target.classList.add("font-current");
 
     localStorage.setItem("Font Size", selectedFontSize);
@@ -130,8 +130,8 @@ if (storageFont) {
     `.settings__fontsize--${storageFont}`
   );
   currentFont.classList.add("font-current");
-  itemDisplay.classList.add(storageFont);
-  amountDisplay.classList.add(storageFont);
+  itemDisplay.setAttribute("id", storageFont);
+  amountDisplay.setAttribute("id", storageFont);
 } else {
   const defaultFont = document.querySelector(".settings__fontsize--f1");
   defaultFont.classList.add("font-current");
@@ -257,7 +257,7 @@ const depositAmount = (e) => {
   // CELEBRATION DISPLAY MESSAGE UPON COMPLETING GOAL
   const celebration = document.querySelector(".modal");
 
-  if (total <= 0.0) {
+  if (total <= 0.009999) {
     // MODAL POP UP
     const title = document.querySelector("header");
     nav.classList.remove("open");
